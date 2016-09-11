@@ -1,7 +1,0 @@
-// hack for css styles for < ie 9 only
-@mixin support-ie-9($property, $value) {
-	$property: #{$value + '\0/'};
-}
-// @include support-ie-9(color, grey);
-// body { color: grey\0/; }
-// For reference: http://www.paulirish.com/2009/browser-specific-css-hacks/

@@ -1,7 +1,0 @@
-// hack for css styles for < ie 9 only
-@mixin support-ie-8($property, $value) {
-	$proptery: #{$value + '\9'};
-}
-// @include support-ie-8(color, grey);
-// body { color: grey\9; }
-// For reference: http://www.paulirish.com/2009/browser-specific-css-hacks/
