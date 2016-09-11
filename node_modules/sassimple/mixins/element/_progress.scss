@@ -1,0 +1,13 @@
+@mixin progress-bar-color($valueColor: $color-brand-contrast, $backgroundColor: transparent) {
+  background-color: $backgroundColor;
+  color: $valueColor;
+  &::-moz-progress-bar {
+    background-color: $valueColor;
+  }
+  &::-webkit-progress-bar {
+    background-color: $backgroundColor;
+  }
+  &::-webkit-progress-value {
+    background-color: $valueColor;
+  }
+}

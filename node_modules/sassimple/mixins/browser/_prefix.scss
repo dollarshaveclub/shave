@@ -1,0 +1,12 @@
+// vendor prefixes
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+// Example usage: @include prefix(text-size-adjust, 2, webkit ms);
+// You should probably look into using:
+// Autoprefixer: https://github.com/postcss/autoprefixer
+// Compass: http://compass-style.org/

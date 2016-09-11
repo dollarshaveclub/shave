@@ -1,0 +1,5 @@
+@mixin appearance($value) {
+   $value: unquote($value);
+   -webkit-appearance: $value;
+   -moz-appearance: $value;
+}

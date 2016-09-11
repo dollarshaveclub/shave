@@ -1,0 +1,5 @@
+@mixin stripes($backgroundColor: black) {
+    background-color: $backgroundColor;
+    background-image: linear-gradient(to bottom right, transparent, transparent 25%, rgba(255,255,255,.2) 25%, rgba(255,255,255,.2) 50%, transparent 50%, transparent 75%, rgba(255,255,255,.2) 75%, rgba(255,255,255,.2));
+    background-size: 4px 4px;
+}

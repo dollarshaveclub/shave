@@ -1,0 +1,40 @@
+// Plugin made by Karl Merkli
+// Karl's Github: https://github.com/Itrulia
+// As found on CSS-tricks: https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+// @include rem-fallback(margin, 10, 20, 30, 40);
+// result:
+// body {
+//   margin: 160px 320px 480px 640px;
+//   margin: 10rem 20rem 30rem 40rem; 
+// }

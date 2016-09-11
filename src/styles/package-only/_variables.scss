@@ -1,0 +1,16 @@
+$spacing-unit: 1rem !default;
+$font-size-default: $spacing-unit * 1.25;
+
+$font-family-default: sans-serif;
+
+$font-family-copy: $font-family-default;
+
+$color-default: black;
+
+// Breakpoint widths (from bootstrap)
+$width-wide: $screen-lg;
+$width-medium: $screen-md;
+$width-small: $screen-sm;
+
+$width-content: 700px;
+

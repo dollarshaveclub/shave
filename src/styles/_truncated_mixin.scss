@@ -1,0 +1,6 @@
+@mixin truncated {
+  &:after {
+    content: '\2026';
+    position: absolute;
+  }
+}

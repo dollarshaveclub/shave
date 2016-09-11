@@ -1,0 +1,25 @@
+{
+  "name": "truncated.js",
+  "description": "A plugin for effeciently truncating text'",
+  "main": "index.html",
+  "authors": [
+    "Jeff Wainwright <jjwainwright2@gmail.com> (jeffr.in)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ellipsis",
+    "truncate",
+    "truncation",
+    "shorten",
+    "javascript",
+    "text"
+  ],
+  "homepage": "https://github.com/yowainwright/truncated.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,33 @@
+@charset "utf-8";
+@import "node_modules/sassimple/mixins/_sassimple.scss";
+
+@import "src/styles/package-only/variables";
+@import "src/styles/package-only/base";
+
+@import "src/styles/truncated.scss";
+
+p,
+figure {
+	margin: $spacing-unit 0;
+}
+figcaption {
+	margin: #{$spacing-unit / 2} 0;
+	text-align: center;
+}
+article {
+	margin: $spacing-unit auto;
+	max-width: calc(100% - #{$spacing-unit * 4});
+	@include media-query-utility($width-small) {
+		max-width: $width-content;
+	}
+}
+h1,
+footer p {
+	text-align: center;
+}
+h1,
+footer {
+	margin: #{$spacing-unit * 2} auto;
+}
+
+

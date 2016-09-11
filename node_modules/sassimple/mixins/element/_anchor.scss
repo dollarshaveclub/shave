@@ -1,0 +1,20 @@
+@mixin anchor-utility(
+    $decoration: none,
+    $decorationHover: underline, 
+    $color: default, 
+    $colorHover: $color,
+    $colorActive: default, 
+    $colorVisited: default
+  ) {
+  color: $color;
+  text-decoration: $decoration;
+  &:hover {
+    text-decoration: $decorationHover;
+  }
+  &:active {
+    color: $colorActive;
+  }
+  &:visited {
+    color: $colorVisited;
+  }
+}

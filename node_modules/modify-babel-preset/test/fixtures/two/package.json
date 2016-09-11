@@ -1,0 +1,10 @@
+{
+  "name": "two",
+  "main": "./index.js",
+  "dependencies": {
+    "one": "*"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.6.5"
+  }
+}

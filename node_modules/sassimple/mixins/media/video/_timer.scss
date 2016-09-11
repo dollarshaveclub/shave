@@ -1,0 +1,95 @@
+//video timer mixin
+@mixin loading($time, $size, $forecolor, $backcolor, $bsize: 8px, $ease: linear) {
+	box-sizing: border-box;
+	position: relative;
+	width: $size;
+	height: $size;
+	border: $backcolor solid $bsize;
+	border-radius: $size;
+	transform: rotate(-45deg);
+	@include animation(loadingseq0 $time steps(1) infinite);
+	&:before {
+	  display: block;
+	  content: ' ';
+	  position: absolute;
+	  top: -#{$bsize};
+	  bottom: -#{$bsize};
+	  left: -#{$bsize};
+	  right: -#{$bsize};
+	  box-sizing: border-box;
+	  border-left: $forecolor solid $bsize;
+	  border-top: $forecolor solid $bsize;
+	  border-right: transparent solid $bsize;
+	  border-bottom: transparent solid $bsize;
+	  border-radius: $size;
+	  @include animation(loadingseq1 $time $ease infinite);
+	}
+	&:after {
+	  display: block;
+	  content: ' ';
+	  position: absolute;
+	  top: -#{$bsize};
+	  bottom: -#{$bsize};
+	  left: -#{$bsize};
+	  right: -#{$bsize};
+	  box-sizing: border-box;
+	  border-left: $backcolor solid $bsize;
+	  border-top: $backcolor solid $bsize;
+	  border-right: transparent solid $bsize;
+	  border-bottom: transparent solid $bsize;
+	  border-radius: $size;
+	  @include animation(loadingseq2 $time steps(1) infinite);
+	}
+  @include keyframes(loadingseq0){
+    0%, 49% {
+      border: $backcolor solid $bsize;
+    }
+    50%, 100% {
+      border: $forecolor solid $bsize;
+    }
+  }
+  @include keyframes(loadingseq1) {
+    0% {
+      border-left: $forecolor solid $bsize;
+      border-top: $forecolor solid $bsize;
+      transform: rotate(0deg);
+    }
+    49% {
+      border-left: $forecolor solid $bsize;
+      border-top: $forecolor solid $bsize;
+      transform: rotate(360deg);
+    }
+    50% {
+      border-left: $backcolor solid $bsize;
+      border-top: $backcolor solid $bsize;
+      transform: rotate(360deg);
+    }
+    100% {
+      border-left: $backcolor solid $bsize;
+      border-top: $backcolor solid $bsize;
+      transform: rotate(720deg);
+    }
+  }
+  @include keyframes(loadingseq2) {
+    0%, 24% {
+      border-left: $backcolor solid $bsize;
+      border-top: $backcolor solid $bsize;
+      transform: rotate(0deg);
+    }
+    25%, 49% {
+      border-left: $forecolor solid $bsize;
+      border-top: $forecolor solid $bsize;
+      transform: rotate(180deg);
+    }
+    50%, 74% {
+      border-left: $forecolor solid $bsize;
+      border-top: $forecolor solid $bsize;
+      transform: rotate(360deg);
+    }
+    75%, 100% {
+      border-left: $backcolor solid $bsize;
+      border-top: $backcolor solid $bsize;
+      transform: rotate(540deg);
+    }
+  }
+}

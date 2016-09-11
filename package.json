@@ -1,0 +1,53 @@
+{
+  "name": "truncated.js",
+  "version": "0.0.1",
+  "description": "A plugin for effeciently truncating text'",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yowainwright/truncated.js.git"
+  },
+  "keywords": [
+    "ellipsis",
+    "truncate",
+    "truncation",
+    "shorten",
+    "javascript",
+    "text"
+  ],
+  "author": "Jeff Wainwright <jjwainwright2@gmail.com> (jeffr.in)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yowainwright/truncated.js/issues"
+  },
+  "homepage": "https://github.com/yowainwright/truncated.js#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "bower": "^1.7.9",
+    "debug": "^2.2.0",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "6.1.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-purifycss": "^0.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.6",
+    "jquery": "^3.1.0",
+    "node-qunit-phantomjs": "^1.4.0",
+    "qunit": "^0.9.1",
+    "rollup": "^0.34.13",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^4.1.0",
+    "rollup-plugin-eslint": "^2.0.2",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "sassimple": "^1.2.2"
+  }
+}
