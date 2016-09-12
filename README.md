@@ -1,9 +1,6 @@
-
-🚨 &nbsp;**This currently an untested project.** Updates will be coming 9/11/16. 🙌
-
 ## Truncated.js
 
-Truncated.js is a javascript plugin that shortens text strings based on a specified max-height & adds an ellipsis at the end.
+Truncated.js is a javascript plugin that shortens a text string based on a specified max-height & adds an ellipsis at the end.
 
 ### Setup
 
@@ -21,41 +18,55 @@ bower install truncated.js --save-dev
 3. `truncate` the element you'd like to give truncation to. 
 
 ```javascript
-truncated('selector', num);🔥
+truncated('selector', maxHeight);🔥
 ```
 
 ### Basic Examples
 
 **Basic**
 ```javascript
-// plain js version
-truncated('selector', num);
-// jquery version
-$('selector').truncated(num);
+truncated('selector', maxHeight);
 ```
 
 **Or Multiples**
 ```javascript
-// plain js version
-truncated('selector', num);
-// jquery version
-$('selector').truncated(num);
+truncated('selector', maxHeight);
 ```
 
 **But not this one**
 ```javascript
-truncated('selector:not([not this selector])', num);
-// jquery version
-$('selector:not([not this selector])').truncated(num);
+truncated('selector:not([not this selector])', maxHeight);
 ```
 
 ### How?
 
-**Trucated.js** trims a text string to a last full word of what can fit within a specified max height.
+**Truncated.js** trims a text string to a last full word of what can fit within a specified max height.
 
 ### Why?
 
-**Truncated.js** is done because of a need for simpicity when it comes to text truncation. Several plugins that I've reviewed oversolve the issue for what people want when they want text truncation - _for text to look nice in a specified space_. 
+**Truncated.js** is made for a need for simpicity when it comes to text truncation. Several plugins that I've reviewed oversolve the issue for what people want when they want text truncation - _for text to look nice in a specified space_. Here's a basic [example](http://codepen.io/yowainwright/pen/xEwNKJ).
 
 This plugin is small - `~1kb` unminified & is meant to do 1 thing - _truncate text based on a specified max height_. 
 
+### Options
+
+If you'd like to not use the classname 'js-truncated', just use your own. 
+
+```javascript
+reframe('selector', 'classname');
+```
+### jQuery
+
+There is [jQuery](https://jquery.com/) version of **Truncated.js** which is even smaller (~76b) than plain **Truncated.js** unminified - so use it if you're already using jQuery.
+
+```javascript
+$('selector').reframe(maxheight);
+```
+&, if you'd like to use a custom classname instead of 'js-truncated'
+
+```javascript
+$('selector').reframe(maxheight, 'classname');
+```
+### Issues
+
+Truncation will produce results that are only questionably better. ***Truncated.js** does not measure line height + text height, store the original text value or count characters by desicion. If you'd like to do that, you could do that in a parent function before calling **Truncation.js**. 

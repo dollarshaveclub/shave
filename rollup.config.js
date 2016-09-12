@@ -8,7 +8,7 @@ export default {
   entry: 'src/truncated.js',
   dest: 'dist/truncated.js',
   format: 'umd',
-  moduleName: 'reframe',
+  moduleName: 'truncated',
   sourceMap: false, // removes the souremap at the bottom of the file
   plugins: [
     resolve({
