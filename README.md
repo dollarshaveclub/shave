@@ -1,3 +1,6 @@
+[![npm version 0.0.4](https://badge.fury.io/js/truncated.js.svg)](https://www.npmjs.com/package/truncated.js)
+[![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/truncated.js)
+
 ## Truncated.js
 
 Truncated.js is a javascript plugin that shortens a text string based on a specified max-height & adds an ellipsis at the end.
