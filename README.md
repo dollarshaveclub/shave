@@ -49,7 +49,7 @@ truncated('selector:not([not this selector])', maxHeight);
 
 **Truncated.js** is made simpicity when it comes to text truncation. Several plugins that I've looked at oversolve what people want when they want text truncation - _for text to look nice in a specified space_. Here's a basic [example](http://codepen.io/yowainwright/pen/xEwNKJ) & with [jQuery](http://codepen.io/yowainwright/pen/VKvNGE).
 
-This plugin is small - `~1kb` unminified & is meant to do 1 thing - _truncate text based on a specified max height_. 
+This plugin is small - `~1.5kb` unminified & is meant to do 1 thing - _truncate text based on a specified max height_. 
 
 ### Options
 
