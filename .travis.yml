@@ -1,25 +1,3 @@
-sudo: false
-
-language: node_js
-
-node_js:
-  - 6
-  - 4
-
-before_install:
-  - npm install -g npm
-  - bower --version
-  - phantomjs --version
-
-install:
-  - npm install
-  - bower install
-
 before_script:
   - npm install -g gulp
-  - npm install node-qunit-phantomjs
-
-after_install:
-  - npm run build
-
 script: gulp
