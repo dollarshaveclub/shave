@@ -47,7 +47,7 @@ truncated('selector:not([not this selector])', maxHeight);
 
 ### Why?
 
-**Truncated.js** is made for a need for simpicity when it comes to text truncation. Several plugins that I've reviewed oversolve the issue for what people want when they want text truncation - _for text to look nice in a specified space_. Here's a basic [example](http://codepen.io/yowainwright/pen/xEwNKJ).
+**Truncated.js** is made simpicity when it comes to text truncation. Several plugins that I've looked at oversolve what people want when they want text truncation - _for text to look nice in a specified space_. Here's a basic [example](http://codepen.io/yowainwright/pen/xEwNKJ) & with [jQuery](http://codepen.io/yowainwright/pen/VKvNGE).
 
 This plugin is small - `~1kb` unminified & is meant to do 1 thing - _truncate text based on a specified max height_. 
 
@@ -60,7 +60,7 @@ reframe('selector', 'classname');
 ```
 ### jQuery
 
-There is [jQuery](https://jquery.com/) version of **Truncated.js** which is even smaller (~76b) than plain **Truncated.js** unminified - so use it if you're already using jQuery.
+You can use truncated with [jQuery](https://jquery.com/).
 
 ```javascript
 $('selector').reframe(maxheight);
@@ -70,6 +70,3 @@ $('selector').reframe(maxheight);
 ```javascript
 $('selector').reframe(maxheight, 'classname');
 ```
-### Issues
-
-Truncation will produce results that are only questionably better. ***Truncated.js** does not measure line height + text height, store the original text value or count characters by desicion. If you'd like to do that, you could do that in a parent function before calling **Truncation.js**. 
