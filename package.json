@@ -1,6 +1,6 @@
 {
   "name": "truncated.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A plugin for effeciently truncating text'",
   "main": "index.html",
   "scripts": {
