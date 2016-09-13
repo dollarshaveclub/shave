@@ -1,7 +1,7 @@
 {
   "name": "truncated.js",
   "description": "A plugin for effeciently truncating text'",
-  "main": "index.html",
+  "main": "dist/truncated.js",
   "version": "0.0.5",
   "authors": [
     "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffry.in)"

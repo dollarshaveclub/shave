@@ -2,7 +2,7 @@
   "name": "truncated.js",
   "version": "0.0.9",
   "description": "A plugin for effeciently truncating text",
-  "main": "index.html",
+  "main": "dist/truncated.js",
   "scripts": {
     "test": "truncated.js"
   },
