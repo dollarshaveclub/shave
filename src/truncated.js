@@ -32,7 +32,9 @@ export default function (target, maxHeight, cName) {
 }
 
 if (window.$ || window.jQuery || window.Zepto) {
-  window.$.fn.truncated = function truncatedFunc(maxHeight, cName) {
-    return new Truncated(this, maxHeight, cName);
-  };
+  window.$.fn.extend({
+    truncated: function truncatedFunc(maxHeight, cName) {
+      return new Truncated(this, maxHeight, cName);
+    },
+  });
 }
