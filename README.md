@@ -14,6 +14,7 @@ npm install truncated.js --save-dev
 bower install truncated.js --save-dev
 ```
 
+
 ### Run
 
 1. Include **truncated.js** into your `vendor` file or in a `<script>` tag.
