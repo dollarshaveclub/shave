@@ -1,10 +1,10 @@
 {
   "name": "truncated.js",
   "version": "0.0.7",
-  "description": "A plugin for effeciently truncating text'",
+  "description": "A plugin for effeciently truncating text",
   "main": "index.html",
   "scripts": {
-    "test": "test"
+    "test": "truncated.js"
   },
   "repository": {
     "type": "git",
