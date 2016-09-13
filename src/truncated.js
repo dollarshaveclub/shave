@@ -1,13 +1,16 @@
-function Truncated(selector, maxHeight, cName) {
-  const content = document.querySelectorAll(selector);
-  const classname = typeof cName !== 'undefined' ? cName : 'js-truncated';
-  if (content.length <= 0) return false;
+function Truncated(target, maxHeight, cName) {
+  let content = typeof target === 'string' ? document.querySelectorAll(target) : target;
+  if (!('length' in content)) {
+    content = [content];
+  }
+  const classname = cName || 'js-truncated';
   for (let i = 0; i < content.length; i++) {
     const text = content[i];
      // exit early if we we don't need truncation
     if (text.offsetHeight < maxHeight) {
-      if (text.classList.contains(classname)) {
-        text.classList.remove(classname);
+      const hasClass = text.classList.contains(classname);
+      if (hasClass) {
+        text.className = text.classList.remove(classname);
       }
       return false;
     }
@@ -24,6 +27,12 @@ function Truncated(selector, maxHeight, cName) {
   return this;
 }
 
-export default function (selector, maxHeight, cName) {
-  return new Truncated(selector, maxHeight, cName);
+export default function (target, maxHeight, cName) {
+  return new Truncated(target, maxHeight, cName);
+}
+
+if (window.$ || window.jQuery || window.Zepto) {
+  window.$.fn.truncated = function truncatedFunc(maxHeight, cName) {
+    return new Truncated(this, maxHeight, cName);
+  };
 }

@@ -39,9 +39,8 @@ gulp.task('styles', () => {
 
 });
 
-// gulp.task('test', function() {
-//   qunit('src/tests/plain/index.html');
-//   qunit('src/tests/jquery/index.html');
-// });
+gulp.task('test', function() {
+  qunit('src/tests/index.html');
+});
 
-gulp.task('default', ['scripts', 'styles']);
+gulp.task('default', ['test', 'scripts', 'styles']);
