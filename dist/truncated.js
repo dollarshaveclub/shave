@@ -26,7 +26,8 @@ function truncated(target, maxHeight, symbol, cName) {
       var lastSpace = trimmedText.lastIndexOf(' ');
       if (lastSpace < 0) break;
       trimmedText = trimmedText.substr(0, lastSpace);
-    } while (text.offsetHeight > maxHeight);
+      el.textContent = trimmedText;
+    } while (el.offsetHeight > maxHeight);
     var k = 0;
     var diff = '';
     for (var j = 0; j < text.length; j++) {

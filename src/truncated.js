@@ -20,7 +20,8 @@ export default function truncated(target, maxHeight, symbol, cName) {
       const lastSpace = trimmedText.lastIndexOf(' ');
       if (lastSpace < 0) break;
       trimmedText = trimmedText.substr(0, lastSpace);
-    } while (text.offsetHeight > maxHeight);
+      el.textContent = trimmedText;
+    } while (el.offsetHeight > maxHeight);
     let k = 0;
     let diff = '';
     for (let j = 0; j < text.length; j++) {
