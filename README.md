@@ -1,30 +1,29 @@
 [![npm version 0.0.4](https://badge.fury.io/js/truncated.js.svg)](https://www.npmjs.com/package/truncated.js)
 [![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/truncated.js)
 
-## Truncated.js
+# Truncated.js
 
-Truncated.js is a javascript plugin that shortens a text string based on a specified max-height & adds an ellipsis at the end.
+> A plugin for effeciently & semantically truncating text
 
-### Setup
+## Setup
 
 ```terminal
-npm install truncated.js --save-dev
+npm i truncated.js --save-dev
 ```
 ```terminal
-bower install truncated.js --save-dev
+bower i truncated.js --save-dev
 ```
 
-### Run
+## Run
 
-1. Include **truncated.js** into your `vendor` file or in a `<script>` tag.
-2. Add truncated `css/scss`  to your `css`.
-3. `truncate` the element you'd like to give truncation to. 
+1. Add **dist/truncated.js**.
+3. `truncate` text within the element you'd like to.
 
 ```javascript
 truncated('selector', maxHeight);🔥
 ```
 
-### Basic Examples
+## Basic Examples
 
 **Basic**
 ```javascript
@@ -40,33 +39,37 @@ truncated('selector', maxHeight);
 ```javascript
 truncated('selector:not([not this selector])', maxHeight);
 ```
+**With a special symbol**
+```javascript
+truncated('selector', maxHeight, '🙌');
+```
 
-### How?
+**With a special CSS Class**
+```javascript
+truncated('selector', maxHeight, '🙌', 'your-css-class');
+```
+
+**Or with jQuery**
+```javascript
+$('selector').truncated(maxHeight);
+```
+
+## How?
 
 **Truncated.js** trims a text string to a last full word of what can fit within a specified max height.
 
-### Why?
+## Why?
 
-**Truncated.js** is made simpicity when it comes to text truncation. Several plugins that I've looked at oversolve what people want when they want text truncation - _for text to look nice in a specified space_. Here's a basic [example](http://codepen.io/yowainwright/pen/xEwNKJ) & with [jQuery](http://codepen.io/yowainwright/pen/VKvNGE).
+**Truncated.js** is made for simpicity, it doesn't try to oversolve. It truncates text to a max height.
 
-This plugin is small - `~1.5kb` unminified & is meant to do 1 thing - _truncate text based on a specified max height_. 
+## What about the original text?
 
-### Options
+**Truncated.js** is re-adds the _diff_ of the original text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is truncated as desired every time.
 
-If you'd like to not use the classname 'js-truncated', just use your own. 
+## What about size?
 
-```javascript
-reframe('selector', 'classname');
-```
-### jQuery
+**Truncated.js** is small - `~2kb` unminified & is meant to do 1 thing - _truncate text based on a specified max height_.
 
-You can use truncated with [jQuery](https://jquery.com/).
+## How can I use it?
 
-```javascript
-$('selector').reframe(maxheight);
-```
-&, if you'd like to use a custom classname instead of 'js-truncated'
-
-```javascript
-$('selector').reframe(maxheight, 'classname');
-```
+You can use **Truncated.js** in all modern formats or even as a `jQuery` or `zepto` plugin;
