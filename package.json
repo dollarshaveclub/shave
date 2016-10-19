@@ -1,10 +1,14 @@
 {
   "name": "truncated.js",
   "version": "0.1.0",
-  "description": "A plugin for effeciently truncating text",
+  "description": "A plugin for effeciently & semantically truncating text",
   "main": "dist/truncated.js",
+	"files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+		"postpublish": "git tag $npm_package_version && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -14,6 +18,10 @@
     "ellipsis",
     "truncate",
     "truncation",
+		"truncated",
+		"semantic",
+		"js",
+		"content",
     "shorten",
     "javascript",
     "text"
@@ -33,13 +41,6 @@
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "6.1.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-purifycss": "^0.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-sass-glob": "^1.0.6",
-    "jquery": "^3.1.0",
     "node-qunit-phantomjs": "^1.4.0",
     "qunit": "^0.9.1",
     "rollup": "^0.34.13",
@@ -47,7 +48,6 @@
     "rollup-plugin-commonjs": "^4.1.0",
     "rollup-plugin-eslint": "^2.0.2",
     "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-uglify": "^1.0.1",
-    "sassimple": "^1.2.2"
+    "rollup-plugin-uglify": "^1.0.1"
   }
 }

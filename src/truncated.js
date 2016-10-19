@@ -1,40 +1,50 @@
-function Truncated(target, maxHeight, cName) {
-  let content = typeof target === 'string' ? document.querySelectorAll(target) : target;
-  if (!('length' in content)) {
-    content = [content];
+export default function truncated(target, maxHeight, symbol, cName) {
+  let els = typeof target === 'string' ? document.querySelectorAll(target) : target;
+  if (!('length' in els)) {
+    els = [els];
   }
+  const hellip = symbol || '&hellip;';
   const classname = cName || 'js-truncated';
-  for (let i = 0; i < content.length; i++) {
-    const text = content[i];
-     // exit early if we we don't need truncation
-    if (text.offsetHeight < maxHeight) {
-      const hasClass = text.classList.contains(classname);
-      if (hasClass) {
-        text.className = text.classList.remove(classname);
-      }
-      return false;
-    }
-    // truncate
-    let trimmedtext = text.textContent;
+  const hellipWrap = `<span class="js-hellip">${hellip}</span>`;
+  for (let i = 0; i < els.length; i++) {
+    const el = els[i];
+    const span = el.querySelector(classname);
+    if (el.offsetHeight < maxHeight && span) {
+      el.removeChild(el.querySelector('.js-hellip'));
+      const text = el.textContent;
+      el.removeChild(span);
+      el.textContent = text;
+      return;
+    } else if (el.offsetHeight < maxHeight) return;
+    const text = el.textContent;
+    let trimmedText = text;
     do {
-      const lastSpace = trimmedtext.lastIndexOf(' ');
+      const lastSpace = trimmedText.lastIndexOf(' ');
       if (lastSpace < 0) break;
-      trimmedtext = trimmedtext.substr(0, lastSpace);
-      text.textContent = trimmedtext;
-    } while (text.offsetHeight > maxHeight);
-    return text.classList.add(classname);
+      trimmedText = trimmedText.substr(0, lastSpace);
+      el.textContent = trimmedText;
+    } while (el.offsetHeight > maxHeight);
+    let k = 0;
+    let diff = '';
+    for (let j = 0; j < text.length; j++) {
+      if (trimmedText[k] !== text[j] || i === trimmedText.length) {
+        diff += text[j];
+      } else {
+        k++;
+      }
+    }
+    el.insertAdjacentHTML(
+      'beforeend',
+      `${hellipWrap}<span class="${classname}" style="display:none;">${diff}</span>`
+    );
+    return;
   }
-  return this;
 }
-
-export default function (target, maxHeight, cName) {
-  return new Truncated(target, maxHeight, cName);
-}
-
-if (window.$ || window.jQuery || window.Zepto) {
-  window.$.fn.extend({
-    truncated: function truncatedFunc(maxHeight, cName) {
-      return new Truncated(this, maxHeight, cName);
+const plugin = window.$ || window.jQuery || window.Zepto;
+if (plugin) {
+  plugin.fn.extend({
+    truncated: function truncatedFunc(maxHeight, symbol, cName) {
+      return truncated(this, maxHeight, symbol, cName);
     },
   });
 }
