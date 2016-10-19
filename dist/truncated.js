@@ -11,15 +11,17 @@ function truncated(target, maxHeight, symbol, cName) {
   }
   var hellip = symbol || '&hellip;';
   var classname = cName || 'js-truncated';
+  var hellipWrap = '<span class="js-hellip">' + hellip + '</span>';
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    if (el.offsetHeight < maxHeight) {
-      var span = el.querySelector(classname);
-      if (span) {
-        el.removeChild(span);
-      }
+    var span = el.querySelector(classname);
+    if (el.offsetHeight < maxHeight && span) {
+      el.removeChild(el.querySelector('.js-hellip'));
+      var _text = el.textContent;
+      el.removeChild(span);
+      el.textContent = _text;
       return;
-    }
+    } else if (el.offsetHeight < maxHeight) return;
     var text = el.textContent;
     var trimmedText = text;
     do {
@@ -37,7 +39,7 @@ function truncated(target, maxHeight, symbol, cName) {
         k++;
       }
     }
-    el.insertAdjacentHTML('beforeend', hellip + '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
+    el.insertAdjacentHTML('beforeend', hellipWrap + '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
     return;
   }
 }

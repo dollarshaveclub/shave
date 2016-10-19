@@ -5,15 +5,17 @@ export default function truncated(target, maxHeight, symbol, cName) {
   }
   const hellip = symbol || '&hellip;';
   const classname = cName || 'js-truncated';
+  const hellipWrap = `<span class="js-hellip">${hellip}</span>`;
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
-    if (el.offsetHeight < maxHeight) {
-      const span = el.querySelector(classname);
-      if (span) {
-        el.removeChild(span);
-      }
+    const span = el.querySelector(classname);
+    if (el.offsetHeight < maxHeight && span) {
+      el.removeChild(el.querySelector('.js-hellip'));
+      const text = el.textContent;
+      el.removeChild(span);
+      el.textContent = text;
       return;
-    }
+    } else if (el.offsetHeight < maxHeight) return;
     const text = el.textContent;
     let trimmedText = text;
     do {
@@ -33,7 +35,7 @@ export default function truncated(target, maxHeight, symbol, cName) {
     }
     el.insertAdjacentHTML(
       'beforeend',
-      `${hellip}<span class="${classname}" style="display:none;">${diff}</span>`
+      `${hellipWrap}<span class="${classname}" style="display:none;">${diff}</span>`
     );
     return;
   }
