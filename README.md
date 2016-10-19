@@ -72,4 +72,4 @@ $('selector').truncated(maxHeight);
 
 ## How can I use it?
 
-You can use **Truncated.js** in all modern formats and as a `jQuery` or `zepto` plugin;
+You can use **Truncated.js** in all modern formats and as a `jQuery` or `zepto` plugin.
