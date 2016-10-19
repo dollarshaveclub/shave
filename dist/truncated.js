@@ -4,43 +4,47 @@
   (global.truncated = factory());
 }(this, (function () { 'use strict';
 
-function Truncated(target, maxHeight, cName) {
-  var content = typeof target === 'string' ? document.querySelectorAll(target) : target;
-  if (!('length' in content)) {
-    content = [content];
+function truncated(target, maxHeight, symbol, cName) {
+  var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
+  if (!('length' in els)) {
+    els = [els];
   }
+  var hellip = symbol || '&hellip;';
   var classname = cName || 'js-truncated';
-  for (var i = 0; i < content.length; i++) {
-    var text = content[i];
-    // exit early if we we don't need truncation
-    if (text.offsetHeight < maxHeight) {
-      var hasClass = text.classList.contains(classname);
-      if (hasClass) {
-        text.className = text.classList.remove(classname);
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    if (el.offsetHeight < maxHeight) {
+      var span = el.querySelector(classname);
+      if (span) {
+        el.removeChild(span);
       }
-      return false;
+      return;
     }
-    // truncate
-    var trimmedtext = text.textContent;
+    var text = el.textContent;
+    var trimmedText = text;
     do {
-      var lastSpace = trimmedtext.lastIndexOf(' ');
+      var lastSpace = trimmedText.lastIndexOf(' ');
       if (lastSpace < 0) break;
-      trimmedtext = trimmedtext.substr(0, lastSpace);
-      text.textContent = trimmedtext;
+      trimmedText = trimmedText.substr(0, lastSpace);
     } while (text.offsetHeight > maxHeight);
-    return text.classList.add(classname);
+    var k = 0;
+    var diff = '';
+    for (var j = 0; j < text.length; j++) {
+      if (trimmedText[k] !== text[j] || i === trimmedText.length) {
+        diff += text[j];
+      } else {
+        k++;
+      }
+    }
+    el.insertAdjacentHTML('beforeend', hellip + '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
+    return;
   }
-  return this;
 }
-
-function truncated (target, maxHeight, cName) {
-  return new Truncated(target, maxHeight, cName);
-}
-
-if (window.$ || window.jQuery || window.Zepto) {
-  window.$.fn.extend({
-    truncated: function truncatedFunc(maxHeight, cName) {
-      return new Truncated(this, maxHeight, cName);
+var plugin = window.$ || window.jQuery || window.Zepto;
+if (plugin) {
+  plugin.fn.extend({
+    truncated: function truncatedFunc(maxHeight, symbol, cName) {
+      return truncated(this, maxHeight, symbol, cName);
     }
   });
 }
