@@ -1,10 +1,14 @@
 {
   "name": "truncated.js",
   "version": "0.1.0",
-  "description": "A plugin for effeciently truncating text",
+  "description": "A plugin for effeciently & semantically truncating text",
   "main": "dist/truncated.js",
+	"files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+		"postpublish": "git tag $npm_package_version && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -14,6 +18,10 @@
     "ellipsis",
     "truncate",
     "truncation",
+		"truncated",
+		"semantic",
+		"js",
+		"content",
     "shorten",
     "javascript",
     "text"
