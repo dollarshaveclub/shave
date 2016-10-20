@@ -1,8 +1,7 @@
 {
-  "name": "truncated.js",
+  "name": "Shave",
   "description": "A plugin for effeciently truncating text'",
-  "main": "dist/truncated.js",
-  "version": "0.0.6",
+  "main": "dist/shave.js",
   "authors": [
     "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffry.in)"
   ],
@@ -11,11 +10,17 @@
     "ellipsis",
     "truncate",
     "truncation",
+    "truncated",
+    "semantic",
+    "js",
+    "content",
     "shorten",
     "javascript",
-    "text"
+    "text",
+    "shave",
+    "trim"
   ],
-  "homepage": "https://github.com/yowainwright/truncated.js",
+  "homepage": "https://github.com/dollarshaveclub/shave",
   "ignore": [
     "**/.*",
     "node_modules",

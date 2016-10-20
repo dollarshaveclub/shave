@@ -1,75 +1,75 @@
-[![npm version 0.0.4](https://badge.fury.io/js/truncated.js.svg)](https://www.npmjs.com/package/truncated.js)
-[![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/truncated.js)
+[![npm version 0.0.4](https://badge.fury.io/js/truncated.js.svg)](https://www.npmjs.com/package/dollarshaveclub/shave)
+[![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
 
-# Truncated.js
+# Shave
 
-> A plugin for effeciently and semantically truncating text.
+> A text truncation plugin that doesn't get in the way.
 
 ## Setup
 
 ```terminal
-npm i truncated.js --save-dev
+npm i shave --save-dev
 ```
 ```terminal
-bower i truncated.js --save-dev
+bower i shave --save-dev
 ```
 
 ## Run
 
-1. Add **dist/truncated.js**.
-3. `truncate` text within the element you'd like to.
+1. Add **dist/shave.js**.
+3. `shave` text within the element you'd like to.
 
 ```javascript
-truncated('selector', maxHeight);🔥
+shave('selector', maxHeight);🔥
 ```
 
 ## Basic Examples
 
 **Basic**
 ```javascript
-truncated('selector', maxHeight);
+shave('selector', maxHeight);
 ```
 
 **Or Multiples**
 ```javascript
-truncated('selector', maxHeight);
+shave('selector', maxHeight);
 ```
 
 **But not this one**
 ```javascript
-truncated('selector:not([not this selector])', maxHeight);
+shave('selector:not([not this selector])', maxHeight);
 ```
 **With a special symbol**
 ```javascript
-truncated('selector', maxHeight, '🍻');
+shave('selector', maxHeight, '🍻');
 ```
 
 **With a special CSS Class**
 ```javascript
-truncated('selector', maxHeight, '🙌', 'your-css-class');
+shave('selector', maxHeight, '🙌', 'your-css-class');
 ```
 
 **Or with jQuery**
 ```javascript
-$('selector').truncated(maxHeight);
+$('selector').shave(maxHeight);
 ```
 
 ## How?
 
-**Truncated.js** trims an element's text string to the last full word that can fit within a specified max height.
+**Shave.js** trims an element's text string to the last full word that can fit within a specified max height.
 
 ## Why?
 
-**Truncated.js** is made for simpicity; it doesn't try to oversolve truncation or provide tons of options. It truncates text to a max height.
+**Shave.js** is made for simpicity; it doesn't try to oversolve truncation or provide tons of options. It truncates text to a max height.
 
 ## What about the original text?
 
-**Truncated.js** re-adds the _diff_ of the original seleected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is truncated as desired every time.
+**Shave.js** re-adds the _diff_ of the original seleected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is truncated as desired every time.
 
 ## What about size?
 
-**Truncated.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _truncate text to fit beatifully to a specified max height_.
+**Shave.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _truncate text to fit beatifully to a specified max height_.
 
 ## How can I use it?
 
-You can use **Truncated.js** in all modern formats and as a `jQuery` or `zepto` plugin.
+You can use **Shave.js** in all modern formats and as a `jQuery` or `zepto` plugin.

@@ -1,10 +1,10 @@
-export default function truncated(target, maxHeight, symbol, cName) {
+export default function shave(target, maxHeight, symbol, cName) {
   let els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) {
     els = [els];
   }
   const hellip = symbol || '&hellip;';
-  const classname = cName || 'js-truncated';
+  const classname = cName || 'js-shave';
   const hellipWrap = `<span class="js-hellip">${hellip}</span>`;
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
@@ -43,8 +43,8 @@ export default function truncated(target, maxHeight, symbol, cName) {
 const plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    truncated: function truncatedFunc(maxHeight, symbol, cName) {
-      return truncated(this, maxHeight, symbol, cName);
+    shave: function shaveFunc(maxHeight, symbol, cName) {
+      return shave(this, maxHeight, symbol, cName);
     },
   });
 }

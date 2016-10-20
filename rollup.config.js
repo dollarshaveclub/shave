@@ -5,10 +5,10 @@ import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 
 export default {
-  entry: 'src/truncated.js',
-  dest: 'dist/truncated.js',
+  entry: 'src/shave.js',
+  dest: 'dist/shave.js',
   format: 'umd',
-  moduleName: 'truncated',
+  moduleName: 'shave',
   sourceMap: false, // removes the souremap at the bottom of the file
   plugins: [
     resolve({
@@ -18,9 +18,7 @@ export default {
     }),
     commonjs(),
     eslint({
-      exclude: [
-        'src/styles/**'
-      ]
+      exclude: []
     }),
     babel({
       exclude: 'node_modules/**',

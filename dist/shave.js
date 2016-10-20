@@ -1,16 +1,16 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global.truncated = factory());
+  (global.shave = factory());
 }(this, (function () { 'use strict';
 
-function truncated(target, maxHeight, symbol, cName) {
+function shave(target, maxHeight, symbol, cName) {
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) {
     els = [els];
   }
   var hellip = symbol || '&hellip;';
-  var classname = cName || 'js-truncated';
+  var classname = cName || 'js-shave';
   var hellipWrap = '<span class="js-hellip">' + hellip + '</span>';
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
@@ -46,12 +46,12 @@ function truncated(target, maxHeight, symbol, cName) {
 var plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    truncated: function truncatedFunc(maxHeight, symbol, cName) {
-      return truncated(this, maxHeight, symbol, cName);
+    shave: function shaveFunc(maxHeight, symbol, cName) {
+      return shave(this, maxHeight, symbol, cName);
     }
   });
 }
 
-return truncated;
+return shave;
 
 })));

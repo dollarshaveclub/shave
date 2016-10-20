@@ -1,8 +1,8 @@
 {
-  "name": "truncated.js",
-  "version": "0.1.0",
-  "description": "A plugin for effeciently & semantically truncating text",
-  "main": "dist/truncated.js",
+  "name": "Shave",
+  "version": "0.0.1",
+  "description": "A smooth text truncation plugin that doesn't get in the way",
+  "main": "dist/shave.js",
 	"files": [
     "dist"
   ],
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yowainwright/truncated.js.git"
+    "url": "git+https://github.com/dollarshaveclub/shave.git"
   },
   "keywords": [
     "ellipsis",
@@ -24,14 +24,16 @@
 		"content",
     "shorten",
     "javascript",
-    "text"
+    "text",
+		"shave",
+		"trim"
   ],
   "author": "Jeff Wainwright <jjwainwright2@gmail.com> (jeffr.in)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yowainwright/truncated.js/issues"
+    "url": "https://github.com/dollarshaveclub/shave/issues"
   },
-  "homepage": "https://github.com/yowainwright/truncated.js#readme",
+  "homepage": "https://github.com/dollarshaveclub/shave#readme",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
