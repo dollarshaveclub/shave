@@ -22,12 +22,13 @@ bower i shave --save-dev
 
 ## Basic Examples
 ```javascript
-shave('#foo', maxHeight); // Shave a single element
-shave('.bar'); // Shave multiple elements
-shave('selector:not([not this selector])', maxHeight); // Complex selectors
-shave('selector', { character: '🍻' }); // Different character instead of an ellipsis
-shave('selector', { classname: 'your-css-class' }); // Adds a custom class name
-$('selector').shave(maxHeight, options); // Or with jQuery
+shave('#foo', maxheight); // Shave a single element
+shave('.bar', maxheight); // Shave multiple elements
+shave('selector:not([not this selector])', maxheight); // Complex selectors
+shave('selector', maxheight, { character: '🍻' }); // Different character instead of an ellipsis
+shave('selector', maxheight, { classname: 'your-css-class' }); // Adds a custom class name
+$('selector').shave(maxheight, options); // Or with jQuery
+$('selector').shave(maxheight, { classname: 'your-css-class' }); // Or with jQuery & options
 ```
 
 ## How?
