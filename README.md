@@ -25,10 +25,10 @@ bower i shave --save-dev
 shave('#foo'); // Shave a single element
 shave('.bar'); // Shave multiple elements
 shave('selector:not([not this selector])'); // Complex selectors
-shave('selector', maxHeight); // Sets the max-height of the element
-shave('selector', maxHeight, '🍻'); // Different character instead of an ellipsis
-shave('selector', maxHeight, '🙌', 'your-css-class'); // Adds a custom class name
-$('selector').shave(maxHeight); // Or with jQuery
+shave('selector', { maxHeight: 50 }); // Sets the max-height of the element
+shave('selector', { truncator: '🍻' }); // Different character instead of an ellipsis
+shave('selector', { className: 'your-css-class' }); // Adds a custom class name
+$('selector').shave(options); // Or with jQuery
 ```
 
 ## How?

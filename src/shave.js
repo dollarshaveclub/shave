@@ -1,16 +1,16 @@
-export default function shave(target, maxHeight, symbol, cName) {
+export default function shave(target, ({maxHeight, truncator, className})) {
   let els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) {
     els = [els];
   }
-  const hellip = symbol || '&hellip;';
-  const classname = cName || 'js-shave';
-  const hellipWrap = `<span class="js-hellip">${hellip}</span>`;
+  const truncChar = truncator || '&hellip;';
+  const classname = className || 'js-shave';
+  const truncCharWrap = `<span class="js-shaved">${truncChar}</span>`;
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
     const span = el.querySelector(classname);
     if (el.offsetHeight < maxHeight && span) {
-      el.removeChild(el.querySelector('.js-hellip'));
+      el.removeChild(el.querySelector('.js-shaved'));
       const text = el.textContent;
       el.removeChild(span);
       el.textContent = text;
@@ -35,7 +35,7 @@ export default function shave(target, maxHeight, symbol, cName) {
     }
     el.insertAdjacentHTML(
       'beforeend',
-      `${hellipWrap}<span class="${classname}" style="display:none;">${diff}</span>`
+      `${truncCharWrap}<span class="${classname}" style="display:none;">${diff}</span>`
     );
     return;
   }
@@ -43,8 +43,8 @@ export default function shave(target, maxHeight, symbol, cName) {
 const plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    shave: function shaveFunc(maxHeight, symbol, cName) {
-      return shave(this, maxHeight, symbol, cName);
+    shave: function shaveFunc(opts) {
+      return shave(this, opts);
     },
   });
 }
