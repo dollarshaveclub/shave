@@ -1,16 +1,21 @@
-export default function shave(target, ({maxHeight, truncator, className})) {
+export default function shave(target, maxHeight, opts) {
   let els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) {
     els = [els];
   }
-  const truncChar = truncator || '&hellip;';
-  const classname = className || 'js-shave';
-  const truncCharWrap = `<span class="js-shaved">${truncChar}</span>`;
+  let defaults = {
+    character: '&hellip;',
+    classname: 'js-shave',
+  };
+  if (typeof opts !== 'undefined') {
+    defaults = opts;
+  }
+  const shaveCharWrap = `<span class="js-shave-char">${defaults.character}</span>`;
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
-    const span = el.querySelector(classname);
+    const span = el.querySelector(defaults.classname);
     if (el.offsetHeight < maxHeight && span) {
-      el.removeChild(el.querySelector('.js-shaved'));
+      el.removeChild(el.querySelector('.js-shave-char'));
       const text = el.textContent;
       el.removeChild(span);
       el.textContent = text;
@@ -35,7 +40,7 @@ export default function shave(target, ({maxHeight, truncator, className})) {
     }
     el.insertAdjacentHTML(
       'beforeend',
-      `${truncCharWrap}<span class="${classname}" style="display:none;">${diff}</span>`
+      `${shaveCharWrap}<span class="${defaults.classname}" style="display:none;">${diff}</span>`
     );
     return;
   }
@@ -43,8 +48,8 @@ export default function shave(target, ({maxHeight, truncator, className})) {
 const plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    shave: function shaveFunc(opts) {
-      return shave(this, opts);
+    shave: function shaveFunc(maxHeight, opts) {
+      return shave(this, maxHeight, opts);
     },
   });
 }

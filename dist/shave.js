@@ -4,19 +4,24 @@
   (global.shave = factory());
 }(this, (function () { 'use strict';
 
-function shave(target, maxHeight, symbol, cName) {
+function shave(target, maxHeight, opts) {
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) {
     els = [els];
   }
-  var hellip = symbol || '&hellip;';
-  var classname = cName || 'js-shave';
-  var hellipWrap = '<span class="js-hellip">' + hellip + '</span>';
+  var defaults = {
+    character: '&hellip;',
+    classname: 'js-shave'
+  };
+  if (typeof opts !== 'undefined') {
+    defaults = opts;
+  }
+  var shaveCharWrap = '<span class="js-shave-char">' + defaults.character + '</span>';
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    var span = el.querySelector(classname);
+    var span = el.querySelector(defaults.classname);
     if (el.offsetHeight < maxHeight && span) {
-      el.removeChild(el.querySelector('.js-hellip'));
+      el.removeChild(el.querySelector('.js-shave-char'));
       var _text = el.textContent;
       el.removeChild(span);
       el.textContent = _text;
@@ -39,15 +44,15 @@ function shave(target, maxHeight, symbol, cName) {
         k++;
       }
     }
-    el.insertAdjacentHTML('beforeend', hellipWrap + '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
+    el.insertAdjacentHTML('beforeend', shaveCharWrap + '<span class="' + defaults.classname + '" style="display:none;">' + diff + '</span>');
     return;
   }
 }
 var plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    shave: function shaveFunc(maxHeight, symbol, cName) {
-      return shave(this, maxHeight, symbol, cName);
+    shave: function shaveFunc(maxHeight, opts) {
+      return shave(this, maxHeight, opts);
     }
   });
 }
