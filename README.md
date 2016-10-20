@@ -60,15 +60,15 @@ $('selector').shave(maxHeight);
 
 ## Why?
 
-**Shave.js** is made for simpicity; it doesn't try to oversolve truncation or provide tons of options. It truncates text to a max height.
+**Shave.js** is made for simpicity; it doesn't try to oversolve truncation or provide tons of options. It truncates text to a specified max height.
 
 ## What about the original text?
 
-**Shave.js** re-adds the _diff_ of the original seleected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is truncated as desired every time.
+**Shave.js** re-adds the _diff_ of the original selected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is truncated as desired every time.
 
 ## What about size?
 
-**Shave.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _truncate text to fit beatifully to a specified max height_.
+**Shave.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _truncate text to fit beautifully to a specified max height_.
 
 ## How can I use it?
 
