@@ -2,8 +2,9 @@
 [![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
 
 # Shave
+> Shave text so that it doesn't get in the way of design
 
-> A text truncation plugin that doesn't get in the way.
+Shave is a javascirpt truncation plugin that doesn't get in the way.
 
 ## Setup
 
@@ -56,7 +57,7 @@ $('selector').shave(maxHeight);
 
 ## How?
 
-**Shave.js** trims an element's text string to the last full word that can fit within a specified max height.
+**Shave.js** shaves an element's text string to the last full word that can fit within a specified max height.
 
 ## Why?
 
@@ -64,12 +65,12 @@ $('selector').shave(maxHeight);
 
 ## What about the original text?
 
-**Shave.js** re-adds the _diff_ of the original selected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is truncated as desired every time.
+**Shave.js** re-adds the _diff_ of the original selected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is shaved properly every time.
 
 ## What about size?
 
-**Shave.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _truncate text to fit beautifully to a specified max height_.
+**Shave.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _shave text to fit beautifully to a specified max height_.
 
 ## How can I use it?
 
-You can use **Shave.js** in all modern formats and as a `jQuery` or `zepto` plugin.
+You can use **Shave.js** in all modern formats and as a `jQuery` or `Zepto` plugin.
