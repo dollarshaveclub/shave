@@ -4,7 +4,7 @@
   (global.shave = factory());
 }(this, (function () { 'use strict';
 
-function shave(target, maxHeight, opts) {
+function shave(target, maxheight, opts) {
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) {
     els = [els];
@@ -20,13 +20,13 @@ function shave(target, maxHeight, opts) {
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
     var span = el.querySelector(defaults.classname);
-    if (el.offsetHeight < maxHeight && span) {
+    if (el.offsetHeight < maxheight && span) {
       el.removeChild(el.querySelector('.js-shave-char'));
       var _text = el.textContent;
       el.removeChild(span);
       el.textContent = _text;
       return;
-    } else if (el.offsetHeight < maxHeight) return;
+    } else if (el.offsetHeight < maxheight) return;
     var text = el.textContent;
     var trimmedText = text;
     do {
@@ -34,7 +34,7 @@ function shave(target, maxHeight, opts) {
       if (lastSpace < 0) break;
       trimmedText = trimmedText.substr(0, lastSpace);
       el.textContent = trimmedText;
-    } while (el.offsetHeight > maxHeight);
+    } while (el.offsetHeight > maxheight);
     var k = 0;
     var diff = '';
     for (var j = 0; j < text.length; j++) {
@@ -51,8 +51,8 @@ function shave(target, maxHeight, opts) {
 var plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    shave: function shaveFunc(maxHeight, opts) {
-      return shave(this, maxHeight, opts);
+    shave: function shaveFunc(maxheight, opts) {
+      return shave(this, maxheight, opts);
     }
   });
 }
