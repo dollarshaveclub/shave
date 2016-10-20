@@ -2,9 +2,10 @@
 [![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
 
 # Shave
-> Shave text so that it doesn't get in the way of design
 
-Shave is a javascirpt truncation plugin that doesn't get in the way.
+> Shave text for smooth looking content within a specified space.
+
+Shave is a javascript text truncation plugin that doesn't get in the way.
 
 ## Setup
 
@@ -61,11 +62,11 @@ $('selector').shave(maxHeight);
 
 ## Why?
 
-**Shave.js** is made for simpicity; it doesn't try to oversolve truncation or provide tons of options. It truncates text to a specified max height.
+**Shave.js** is made for simplicity; it doesn't try to over solve truncation or provide tons of options. It truncates text to a specified max height.
 
 ## What about the original text?
 
-**Shave.js** re-adds the _diff_ of the original selected elements's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is shaved properly every time.
+**Shave.js** re-adds the _diff_ of the original selected element's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is shaved properly every time.
 
 ## What about size?
 
@@ -74,3 +75,9 @@ $('selector').shave(maxHeight);
 ## How can I use it?
 
 You can use **Shave.js** in all modern formats and as a `jQuery` or `Zepto` plugin.
+
+## Examples
+
+[codepen example](http://codepen.io/yowainwright/pen/5f471214df90f43c7996c5914c88e858/) with plain javascript.
+
+[Codepen example](http://codepen.io/yowainwright/pen/c35ad7a281bc58ce6f89d2adb94c5d14/) with jQuery.
