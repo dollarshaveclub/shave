@@ -5,14 +5,13 @@
 
 > Shave text for smooth looking content within a specified space.
 
-Shave is a javascript text truncation plugin that doesn't get in the way.
+Shave is a javascript text truncation plugin that doesn't get in the way. It is an alternative to `text-overflow: ellipsis;` in that it will truncate *multi-line* text.
 
 ## Setup
 
-```terminal
+```sh
 npm i shave --save-dev
-```
-```terminal
+# or
 bower i shave --save-dev
 ```
 
@@ -21,39 +20,15 @@ bower i shave --save-dev
 1. Add **dist/shave.js**.
 3. `shave` text within the element you'd like to.
 
-```javascript
-shave('selector', maxHeight);🔥
-```
-
 ## Basic Examples
-
-**Basic**
 ```javascript
-shave('selector', maxHeight);
-```
-
-**Or Multiples**
-```javascript
-shave('selector', maxHeight);
-```
-
-**But not this one**
-```javascript
-shave('selector:not([not this selector])', maxHeight);
-```
-**With a special symbol**
-```javascript
-shave('selector', maxHeight, '🍻');
-```
-
-**With a special CSS Class**
-```javascript
-shave('selector', maxHeight, '🙌', 'your-css-class');
-```
-
-**Or with jQuery**
-```javascript
-$('selector').shave(maxHeight);
+shave('#foo'); // Shave a single element
+shave('.bar'); // Shave multiple elements
+shave('selector:not([not this selector])'); // Complex selectors
+shave('selector', maxHeight); // Sets the max-height of the element
+shave('selector', maxHeight, '🍻'); // Different character instead of an ellipsis
+shave('selector', maxHeight, '🙌', 'your-css-class'); // Adds a custom class name
+$('selector').shave(maxHeight); // Or with jQuery
 ```
 
 ## How?
