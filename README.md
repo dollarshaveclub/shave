@@ -5,7 +5,7 @@
 
 > Shave text for smooth looking content within a specified space.
 
-Shave is a javascript text truncation plugin that doesn't get in the way. It is an alternative to `text-overflow: ellipsis;` in that it will truncate *multi-line* text.
+**Shave** is a javascript plugin that trims text to fit within a html element based on a set *max-height*. It is an alternative to `text-overflow: ellipsis;` in that it will truncate *multi-line* text.
 
 ## Setup
 
@@ -53,6 +53,6 @@ You can use **Shave.js** in all modern formats and as a `jQuery` or `Zepto` plug
 
 ## Examples
 
-[codepen example](http://codepen.io/yowainwright/pen/5f471214df90f43c7996c5914c88e858/) with plain javascript.
+[Codepen example](http://codepen.io/yowainwright/pen/5f471214df90f43c7996c5914c88e858/) with plain javascript.
 
 [Codepen example](http://codepen.io/yowainwright/pen/c35ad7a281bc58ce6f89d2adb94c5d14/) with jQuery.
