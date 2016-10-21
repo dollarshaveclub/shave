@@ -1,6 +1,9 @@
-[![npm version 0.0.2](https://badge.fury.io/js/shave.svg)](https://www.npmjs.com/package/dollarshaveclub/shave)
-[![Bower version 0.0.2](https://badge.fury.io/bo/shave.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
+![shave](https://cloud.githubusercontent.com/assets/1074042/19585160/fadce042-96fe-11e6-9959-3d5bfe8a52dd.jpg)
 
+[![npm version 0.0.3](https://badge.fury.io/js/shave.svg)](https://www.npmjs.com/package/dollarshaveclub/shave)
+[![Bower version 0.0.3](https://badge.fury.io/bo/shave.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
+[![Build Status](https://travis-ci.org/dollarshaveclub/shave.svg?branch=master)](https://travis-ci.org/dollarshaveclub/shave)
+[![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%20text%20for%20smooth%20looking%20content%20within%20a%20specified%20element%20%E2%9C%81%20https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%23JavaScript%20%40yowainwright%20%40DSCEngineering)
 # Shave
 
 > Shave text for smooth looking content within a specified space.
