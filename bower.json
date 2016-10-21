@@ -1,5 +1,5 @@
 {
-  "name": "Shave",
+  "name": "shave",
   "description": "A plugin for effeciently truncating text'",
   "main": "dist/shave.js",
   "authors": [
