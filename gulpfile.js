@@ -2,8 +2,15 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 
-gulp.task('test', function() {
-  qunit('tests/index.html');
+gulp.task('styles', function() {
+  var processors = [mqpacker];
+  return gulp
+    .src('main.scss')
+    .pipe(sassGlob())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({browsers: ['last 3 versions']}))
+    .pipe(postcss(processors))
+    .pipe(gulp.dest(''));
 });
 
-gulp.task('default', ['test']);
+gulp.task('default', ['styles']);

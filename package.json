@@ -35,10 +35,12 @@
   },
   "homepage": "https://github.com/dollarshaveclub/shave#readme",
   "devDependencies": {
+    "autoprefixer": "^6.5.1",
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-es2015-rollup": "^1.2.0",
     "bower": "^1.7.9",
+    "css-mqpacker": "^5.0.1",
     "debug": "^2.2.0",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "6.1.0",

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="//dollarshaveclub.github.io/reframe.js">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link href="reframe.png" rel="apple-touch-icon" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@DSCEngineering">
+  <meta name="twitter:url" property="og:url" content="https://github.com/dollarshaveclub/shave">
+  <meta name="twitter:title" property="og:title" content="https://github.com/dollarshaveclub/shave">
+  <meta name="twitter:description" property="og:description" content="Shave, a javascript plugin for smooth looking content within a specified space">
+  <meta name="twitter:image" property="og:image" content="reframe.jpg">
+	<title>Shave, a javascript plugin for smooth looking content within a specified space</title>
+  <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" media="all" href="main.css">
+</head>
+<body>
+  <main>
+  	<article>
+  		<header>
+        <figure>
+          <img src="shave-thin.svg" alt="Shave, a javascript plugin for smooth looking content within a specified space" />
+        </figure>
+  			<h1>
+  				Shave, a javascript plugin for smooth looking content within a specified space
+  			</h1>
+  		</header>
+      <div class="center">
+        <a href="https://www.npmjs.com/package/Shave">
+          <img alt="npm version 0.0.3" src="https://badge.fury.io/js/Shave.svg" />
+        </a>
+        <a href="https://github.com/dollarshaveclub/shave">
+          <img alt="Bower version 0.0.3" src="https://badge.fury.io/bo/shave.svg" />
+        </a>
+        <a href="https://travis-ci.org/dollarshaveclub/shave">
+          <img alt="Build Status" src="https://travis-ci.org/dollarshaveclub/shave.svg?branch=master" />
+        </a>
+        <a href="https://twitter.com/home?status=Shave%2C%20a%20javascript%20plugin%20for%20smooth%20looking%20content%20within%20a%20specified%20element%20%E2%9C%81%20https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%23JavaScript%20%40DSCEngineering">
+          <img alt="Share" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000" />
+        </a>
+        <iframe id="ghbtns" style="position: relative; top: 6px" src="https://ghbtns.com/github-btn.html?user=dollarshaveclub&repo=shave&type=star" frameborder="0" scrolling="0" width="60px" height="20px"></iframe>
+      </div>
+  		<div id="demo">
+        Shave is not just another truncation plugin, it offers a simple solution to what people really want in a truncation plugin.
+        First Shave trims text down to the closest word based on a set max-height with a basic do while loop. Then Shave takes the diff of the original vs trimmed text.
+        Shave then tacks the diff onto the end of the "shaved element" but it's no visible to users.
+  		</div>
+      <div class="content">
+        <div>
+          <h2>Install</h2>
+          <pre><code>npm i shave --save-dev</code></pre></pre>
+          <h3>Or</h3>
+          <pre><code>bower i shave --save-dev</code></pre>
+        </div>
+        <div>
+          <h2>Setup</h2>
+          <ol>
+            <li>
+              Add <code>dist/shave.js</code>.
+            </li>
+            <li>shave text to your set max height witin the element that you select.</li>
+          </ol>
+        </div>
+        <div>
+          <pre><code>reframe('selector');</code></pre>
+        </div>
+        <div>
+          <h2>Examples</h2>
+          <h3>Basic</h3>
+          <pre><code>reframe('selector');</code></pre>
+          <h3>Or Multiples</h3>
+          <pre><code>reframe('selector'); // same function as before (so simple)</code></pre>
+          <h3>But not this one</h3>
+          <pre><code>reframe('selector:not([not this selector])');</code></pre>
+        </div>
+         <div>
+          <h2>How?</h2>
+          <p>
+            <span class="shave">Reframe.js</span> removes a specified element's height &amp; width attributes &amp; then wraps that element in responsive div that is an <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video">intrinsic ratio</a> of the original element. This plugin is meant for embedded content like <code>iframes</code> or <code>videos</code>.
+          </p>
+           <h2>Why?</h2>
+          <p>
+            <span class="shave">Reframe.js</span> is inspired by <a href="http://fitvidsjs.com/">FitVids</a> &amp; does what FitVids does but without the need for <code>jQuery</code>. This makes the plugin highly valuable when including it in a module that has to be very small &amp; with minimal dependencies. Here's a basic <a href="http://codepen.io/yowainwright/pen/amzAEo">codepen example</a>.
+          </p>
+          <p>
+          This plugin is small - <code>~1.3kb</code> unminified &amp; is meant to do 1 thing - wrap elements that aren't responsive &amp; make them responsive. 💪
+          </p>
+        </div>
+        <div>
+          <h2>Options</h2>
+          <p>If you'd like to not use the classname 'js-reframe', just use your own.</p>
+          <pre><code>reframe('selector', 'classname');</code></pre>
+        </div>
+        <div>
+          <h2>jQuery</h2>
+          <p>You can use <span class="shave">Reframe.js</span> with jQuery as well.</p>
+          <pre><code>$('selector').reframe();</code></pre>
+          <p>&amp;, if you'd like to use a custom classname</p>
+          <pre><code>$('selector').reframe('classname');</code></pre>
+        </div>
+				<div>
+          <h2>New! <span class="shave">Noframe.js</span></h2>
+					<p>Noframe.js makes the same ratio as Reframe.js using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">css calc</a>.
+					<p>Noframe.js's doesn't wrap the element you'd like to be responsive. It, instead, does a calculation based on its or a parent element's max-width. Here's a basic <a href="http://codepen.io/yowainwright/pen/19cd3f2fc3e00ce80e36285feae20b77">codepen example</a>.</p>
+        </div>
+				<div>
+					<h2><span class="shave">Noframe.js</span> Notes</h2>
+					<p>The reframed element requires a parent element with a max width to scale above the selected elements intial size otherwise the reframed element will only scale below its initial size. 👍</p>
+				</div>
+				<div>
+					<h2>Setup</h2>
+					<ol>
+						<li>Add dist/noframe.js</li>
+						<li>noframe the element you'd like to re-frame.</li>
+					</ol>
+				</div>
+				<div>
+					<h2>Examples</h2>
+					<pre><code>noframe('iframe');</code></pre>
+					<h3>Or provide a parent element with a <code>max-width</code></h3>
+					<pre><code>noframe('iframe', 'parent');</code></pre>
+					<h2>jQuery</h2>
+					<pre><code>$('iframe').noframe();</code></pre>
+					<h3>Or add a parent element with a <code>max-width</code></h3>
+					<pre><code>$('iframe').noframe('parent');</code></pre>
+				</div>
+				<div>
+					<h2>Reframe.js or Noframe.js?</h2>
+					<p>Reframe.js offers the simpliest solution to making elements scale at an intrinsic ratio.</p>
+					<p>Noframe.js doesn't wrap the selected element to make it scale at an intrinsic ratio. Noframe.js is the ideal solution when various events, like tracking events, could be affected when an element is wrapped. It does require a width or max-width which can involve a bit more setup awareness.</p>
+				</div>
+        <p class="center">
+          Made by <a href="https://github.com/dollarshaveclub">Dollar Shave Club Engineering</a>.
+        </p>
+        <p class="center">
+          <a href="https://github.com/dollarshaveclub/reframe.js"><span class="reframe">Reframe.js</span></a>
+        </p>
+      </div>
+  	</article>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+	<script src="bower_components/dist/shave.js"></script>
+  <script src="main.js"></script>
+
+  <!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84214503-1', 'auto');
+  ga('send', 'pageview');
+
+</script> -->
+	</body>
+</html>
