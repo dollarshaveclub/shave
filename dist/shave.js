@@ -9,13 +9,14 @@ function shave(target, maxheight, opts) {
   if (!('length' in els)) {
     els = [els];
   }
-  var defaults = {
-    character: '&hellip;',
-    classname: 'js-shave'
-  };
-  if (typeof opts !== 'undefined') {
-    defaults = opts;
+  if (!maxheight) {
+    throw Error('maxHeight is required');
   }
+  var hasOpts = typeof opts !== 'undefined';
+  var defaults = {
+    character: hasOpts ? opts.character : '&hellip;',
+    classname: hasOpts ? opts.classname : 'js-shave'
+  };
   var shaveCharWrap = '<span class="js-shave-char">' + defaults.character + '</span>';
   for (var i = 0; i < els.length; i++) {
     var el = els[i];

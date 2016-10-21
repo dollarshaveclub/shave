@@ -3,13 +3,14 @@ export default function shave(target, maxheight, opts) {
   if (!('length' in els)) {
     els = [els];
   }
-  let defaults = {
-    character: '&hellip;',
-    classname: 'js-shave',
-  };
-  if (typeof opts !== 'undefined') {
-    defaults = opts;
+  if (!maxheight) {
+    throw Error('maxHeight is required');
   }
+  const hasOpts = typeof opts !== 'undefined';
+  const defaults = {
+    character: hasOpts ? opts.character : '&hellip;',
+    classname: hasOpts ? opts.classname : 'js-shave',
+  };
   const shaveCharWrap = `<span class="js-shave-char">${defaults.character}</span>`;
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
