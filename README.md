@@ -6,56 +6,66 @@
 [![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%2C%20a%20javascript%20plugin%20for%20smooth%20looking%20content%20within%20a%20specified%20element%20%E2%9C%81%20https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%23JavaScript%20%40DSCEngineering)
 # Shave
 
-> Shave, a javascript plugin for smooth looking content within a specified space.
+**Shave** is a zero dependency javascript plugin that truncates text to fit within a html element based on a set *max-height*. It then stores the _diff_ of the original text string in a hidden `<span>` element following the visible text. This means the original text remains in tact! Shave truncates *multi-line* text in the most simple, lightweight and uncomplicated way possible.
 
-**Shave** is a javascript plugin that trims text to fit within a html element based on a set *max-height*. It is an alternative to `text-overflow: ellipsis;` in that it will truncate *multi-line* text.
+**Shave, compared to other truncation plugins:**
+-   maintains the original text after truncation.
+-   does not require other libraries
+-   only requires a selector and a max height
+-   is very lightweight - `~1.5kb` unminified
+-   allows for custom ellipsis strings and class names but doesn't over complicate what's needed to truncated text within a html element.
 
-## Setup
+## Installing from a package manager
 
+npm
 ```sh
 npm i shave --save-dev
-# or
+```
+bower
+```
 bower i shave --save-dev
 ```
 
-## Run
+## Usage
 
 1. Add **dist/shave.js**.
 3. `shave` text within the element you'd like to.
 
-## Basic Examples
+## Syntax
+
+basic setup
 ```javascript
-shave('#foo', maxheight); // Shave a single element
-shave('.bar', maxheight); // Shave multiple elements
-shave('selector:not([not this selector])', maxheight); // Complex selectors
-shave('selector', maxheight, { character: '🍻' }); // Different character instead of an ellipsis
-shave('selector', maxheight, { classname: 'your-css-class' }); // Adds a custom class name
-$('selector').shave(maxheight, options); // Or with jQuery
-$('selector').shave(maxheight, { classname: 'your-css-class' }); // Or with jQuery & options
+shave('selector', maxheight);
 ```
+**Shave also provided options _only_ to overwrite what it uses.**
 
-## How?
-
-**Shave.js** shaves an element's text string to the last full word that can fit within a specified max height.
-
-## Why?
-
-**Shave.js** is made for simplicity; it doesn't try to over solve truncation or provide tons of options. It truncates text to a specified max height.
-
-## What about the original text?
-
-**Shave.js** re-adds the _diff_ of the original selected element's text in a hidden `<span>`. It runs a check for that `<span>` to make sure text is shaved properly every time.
-
-## What about size?
-
-**Shave.js** is small - `~1.5kb` unminified and is meant to do 1 thing - _shave text to fit beautifully to a specified max height_.
-
-## How can I use it?
-
-You can use **Shave.js** in all modern formats and as a `jQuery` or `Zepto` plugin.
+So, if you'd like have custom class names and not use `.js-shave`:
+```javascript
+shave('selector', maxheight, {classname: 'classname'});
+```
+Or, if you'd like to have custom characters (instead of the standard ellipsis):
+```javascript
+shave('selector', maxheight, {character: '✁'});
+```
+Or, both:
+```javascript
+shave('selector', maxheight, {classname: 'classname', character: '✁' });
+```
+You can also use **shave** as a _jQuery_ or _Zepto_ plugin.
+```javascript
+$('selector').shave(maxheight);
+```
+And, here's a _jQuery/Zepto_ example with custom options:
+```javascript
+$('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  });
+```
 
 ## Examples
 
 [Codepen example](http://codepen.io/yowainwright/pen/5f471214df90f43c7996c5914c88e858/) with plain javascript.
 
 [Codepen example](http://codepen.io/yowainwright/pen/c35ad7a281bc58ce6f89d2adb94c5d14/) with jQuery.
+
+## Notes
+
+`text-overflow: ellipsis` is the way to go when truncating text to a single line. Shave does something very similar but for _multiple lines_. 
