@@ -1,5 +1,6 @@
 const gulp = require('gulp');
-const qunit = require('node-qunit-phantomjs');
+const sass = require('gulp-sass');
+const sassGlob = require('gulp-sass-glob');
 
 gulp.task('test', function() {
   qunit('tests/index.html');

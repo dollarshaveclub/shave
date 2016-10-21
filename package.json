@@ -3,12 +3,12 @@
   "version": "0.0.8",
   "description": "A smooth text truncation plugin that doesn't get in the way",
   "main": "dist/shave.js",
-	"files": [
+  "files": [
     "dist"
   ],
   "scripts": {
     "test": "gulp test",
-		"postpublish": "git tag $npm_package_version && git push origin --tags"
+    "postpublish": "git tag $npm_package_version && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -18,15 +18,15 @@
     "ellipsis",
     "truncate",
     "truncation",
-		"truncated",
-		"semantic",
-		"js",
-		"content",
+    "truncated",
+    "semantic",
+    "js",
+    "content",
     "shorten",
     "javascript",
     "text",
-		"shave",
-		"trim"
+    "shave",
+    "trim"
   ],
   "author": "Jeff Wainwright <jjwainwright2@gmail.com> (jeffr.in)",
   "license": "ISC",
@@ -43,6 +43,9 @@
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "6.1.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.6",
     "node-qunit-phantomjs": "^1.4.0",
     "qunit": "^0.9.1",
     "rollup": "^0.34.13",
