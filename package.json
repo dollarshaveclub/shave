@@ -1,6 +1,6 @@
 {
   "name": "Shave",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A smooth text truncation plugin that doesn't get in the way",
   "main": "dist/shave.js",
 	"files": [

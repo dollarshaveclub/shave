@@ -1,5 +1,5 @@
-[![npm version 0.0.4](https://badge.fury.io/js/truncated.js.svg)](https://www.npmjs.com/package/dollarshaveclub/shave)
-[![Bower version 0.0.2](https://badge.fury.io/bo/truncated.js.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
+[![npm version 0.0.2](https://badge.fury.io/js/shave.svg)](https://www.npmjs.com/package/dollarshaveclub/shave)
+[![Bower version 0.0.2](https://badge.fury.io/bo/shave.svg)](https://github.com/yowainwright/dollarshaveclub/shave)
 
 # Shave
 
