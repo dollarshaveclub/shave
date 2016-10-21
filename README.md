@@ -3,10 +3,10 @@
 [![npm version 0.0.3](https://badge.fury.io/js/Shave.svg)](https://www.npmjs.com/package/Shave)
 [![Bower version 0.0.3](https://badge.fury.io/bo/shave.svg)](https://github.com/dollarshaveclub/shave)
 [![Build Status](https://travis-ci.org/dollarshaveclub/shave.svg?branch=master)](https://travis-ci.org/dollarshaveclub/shave)
-[![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%20text%20for%20smooth%20looking%20content%20within%20a%20specified%20element%20%E2%9C%81%20https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%23JavaScript%20%40yowainwright%20%40DSCEngineering)
+[![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%2C%20a%20javascript%20plugin%20for%20smooth%20looking%20content%20within%20a%20specified%20element%20%E2%9C%81%20https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%23JavaScript%20%40DSCEngineering)
 # Shave
 
-> Shave text for smooth looking content within a specified space.
+> Shave, a javascript plugin for smooth looking content within a specified space.
 
 **Shave** is a javascript plugin that trims text to fit within a html element based on a set *max-height*. It is an alternative to `text-overflow: ellipsis;` in that it will truncate *multi-line* text.
 
