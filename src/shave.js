@@ -14,14 +14,14 @@ export default function shave(target, maxheight, opts) {
   const shaveCharWrap = `<span class="js-shave-char">${defaults.character}</span>`;
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
-    const span = el.querySelector(defaults.classname);
-    if (el.offsetHeight < maxheight && span) {
+    const span = el.querySelector(`.${defaults.classname}`);
+    if (span) {
       el.removeChild(el.querySelector('.js-shave-char'));
-      const text = el.textContent;
+      const replacedtext = el.textContent;
       el.removeChild(span);
-      el.textContent = text;
-      return;
-    } else if (el.offsetHeight < maxheight) return;
+      el.textContent = replacedtext;
+    }
+    if (el.offsetHeight < maxheight) return;
     const text = el.textContent;
     let trimmedText = text;
     do {

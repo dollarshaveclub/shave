@@ -20,14 +20,14 @@ function shave(target, maxheight, opts) {
   var shaveCharWrap = '<span class="js-shave-char">' + defaults.character + '</span>';
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    var span = el.querySelector(defaults.classname);
-    if (el.offsetHeight < maxheight && span) {
+    var span = el.querySelector('.' + defaults.classname);
+    if (span) {
       el.removeChild(el.querySelector('.js-shave-char'));
-      var _text = el.textContent;
+      var replacedtext = el.textContent;
       el.removeChild(span);
-      el.textContent = _text;
-      return;
-    } else if (el.offsetHeight < maxheight) return;
+      el.textContent = replacedtext;
+    }
+    if (el.offsetHeight < maxheight) return;
     var text = el.textContent;
     var trimmedText = text;
     do {
