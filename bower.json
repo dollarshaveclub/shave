@@ -32,6 +32,6 @@
     "rollup.config.js"
   ],
   "devDependencies": {
-    "shave": "^0.1.0"
+    "shave": "^0.1.1"
   }
 }

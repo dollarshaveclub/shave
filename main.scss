@@ -6,17 +6,10 @@
     src: url('Action_Man_Bold-webfont.woff') format('woff'),
          url('Action_Man_Bold-webfont.ttf') format('truetype');
 }
-@font-face {
-    font-family: 'action_man_shadedregular';
-    src: url('Action_Man_Shaded-webfont.eot');
-    src: url('Action_Man_Shaded-webfont.woff') format('woff'),
-         url('Action_Man_Shaded-webfont.ttf') format('truetype');
-}
 
 // Fonts (https://www.fontsquirrel.com/fonts/Action-Man?filter%5Blicense%5D%5B0%5D=web)
 $font-family: sans-serif;
 $font-family-alt: 'action_manbold';
-$font-family-alt-outline: 'action_man_shadedregular';
 
 // Theme (reds)
 $color-theme: #bf484d;
@@ -236,31 +229,19 @@ footer h2 {
     border: 1px solid $color-theme-dark;
     border-radius: $space-med-sm;
     box-shadow: 0px 0px 4px 0px $color-theme-dark;
+		color: white;
     display: block;
+		font-family: $font-family-alt;
+		font-size: 1.25rem;
+		height: 4rem;
     margin: 0 auto;
     outline: 0;
     padding: $space;
+		width: 15.5rem;
     &:hover {
       cursor: pointer;
-    }
-  }
-  &__title,
-  &__small {
-    color: white;
-    font-family: $font-family-alt;
-  }
-  &__title {
-    border: 0;
-    display: block;
-    font-size: 1.25rem;
-    padding: 0;
-    @media (min-width: $size-sm) {
-      font-size: 2rem;
-    }
-  }
-  &__small {
-    font-size: 1rem;
-  }
+  	}
+	}
   &__text {
     color: $color-theme-dark;
     font-family: serif;
@@ -286,9 +267,6 @@ footer h2 {
       border-top: 0;
       padding-top: 0;
     }
-  }
-  &--install {
-
   }
   &--usage {
     h3,
