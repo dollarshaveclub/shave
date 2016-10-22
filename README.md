@@ -6,14 +6,15 @@
 [![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%2C%20a%20javascript%20plugin%20for%20smooth%20looking%20content%20within%20a%20specified%20element%20%E2%9C%81%20https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%23JavaScript%20%40DSCEngineering)
 # Shave
 
-**Shave** is a zero dependency javascript plugin that truncates text to fit within a html element based on a set *max-height*. It then stores the _diff_ of the original text string in a hidden `<span>` element following the visible text. This means the original text remains in tact! Shave truncates *multi-line* text in the most simple, lightweight and uncomplicated way possible.
+**Shave** is a zero dependency javascript plugin that truncates multi-line text to fit within a html element based on a set *max-height*. It then stores the _diff_ of the original text string in a hidden `<span>` element following the visible text. This means the original text remains in tact!
 
 **Shave, compared to other truncation plugins:**
 -   maintains the original text after truncation.
 -   does not require other libraries
 -   only requires a selector and a max height
 -   is very lightweight - `~1.5kb` unminified
--   allows for custom ellipsis strings and class names but doesn't over complicate what's needed to truncated text within a html element.
+-   allows for custom ellipsis strings and class names but doesn't over complicate.
+-   is additive. It will play nice with other javascript libraries and more truncation features can easily be built with it.
 
 ## Installing from a package manager
 
@@ -68,4 +69,4 @@ $('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  
 
 ## Notes
 
-`text-overflow: ellipsis` is the way to go when truncating text to a single line. Shave does something very similar but for _multiple lines_. 
+`text-overflow: ellipsis` is the way to go when truncating text to a single line. Shave does something very similar but for _multiple lines_.
