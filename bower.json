@@ -1,6 +1,6 @@
 {
   "name": "shave",
-  "description": "Shave is a javascript plugin that truncated text within a html element based on set max height",
+  "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
   "authors": [
     "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffry.in)"
@@ -26,6 +26,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "src/*",
+    "gulpfile.js",
+    "rollup.config.js"
   ]
 }

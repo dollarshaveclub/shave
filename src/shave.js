@@ -8,8 +8,8 @@ export default function shave(target, maxheight, opts) {
   }
   const hasOpts = typeof opts !== 'undefined';
   const defaults = {
-    character: hasOpts ? opts.character : '&hellip;',
-    classname: hasOpts ? opts.classname : 'js-shave',
+    character: hasOpts && opts.character ? opts.character : '&hellip;',
+    classname: hasOpts && opts.classname ? opts.classname : 'js-shave',
   };
   const shaveCharWrap = `<span class="js-shave-char">${defaults.character}</span>`;
   for (let i = 0; i < els.length; i++) {
