@@ -231,17 +231,35 @@ footer h2 {
   }
 }
 .demo {
+  &__button {
+    background-color: darken($color-theme, 5%);
+    border: 1px solid $color-theme-dark;
+    border-radius: $space-med-sm;
+    box-shadow: 0px 0px 4px 0px $color-theme-dark;
+    display: block;
+    margin: 0 auto;
+    outline: 0;
+    padding: $space;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__title,
+  &__small {
+    color: white;
+    font-family: $font-family-alt;
+  }
   &__title {
     border: 0;
-    color: $color-theme-dark;
-    font-size: 1.5rem;
-    margin: 0 auto;
+    display: block;
+    font-size: 1.25rem;
     padding: 0;
-    text-align: center;
-    text-shadow: 0 1px 0 $color-theme-med;
     @media (min-width: $size-sm) {
-      font-size: 3.5rem;
+      font-size: 2rem;
     }
+  }
+  &__small {
+    font-size: 1rem;
   }
   &__text {
     color: $color-theme-dark;

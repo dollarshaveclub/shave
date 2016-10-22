@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Shave, a javascript plugin for smooth looking content within a specified space</title>
+	<title>Shave is a zero dependency javascript plugin that truncates multi-line text to fit within a html element based on a set max-height.</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,11 +12,11 @@
   <meta name="twitter:title" property="og:title" content="https://github.com/dollarshaveclub/shave">
   <meta name="twitter:description" property="og:description" content="Shave, a javascript plugin for smooth looking content within a specified space">
   <meta name="twitter:image" property="og:image" content="shave-social.jpg">
-	<link rel="canonical" href="//dollarshaveclub.github.io/shave">
-  <link rel="shortcut icon" href="shave-social.jpg" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="canonical" href="//dollarshaveclub.github.io/shave" />
+  <link rel="shortcut icon" href="shave-social.jpg" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="shave-social.png" rel="apple-touch-icon" />
-  <link rel="stylesheet" media="all" href="main.css">
+  <link rel="stylesheet" media="all" href="main.css" />
 </head>
 <body>
 	<header>
@@ -24,7 +24,7 @@
 			<img src="shave-thin.svg" alt="Shave, a javascript plugin for smooth looking content within a specified space" />
 		</figure>
 		<h1>
-			Shave, a javascript plugin for smooth looking content within a specified space
+			A javascript plugin for smooth looking content within a specified space
 		</h1>
 		<nav class="center nav">
 			<a href="https://www.npmjs.com/package/Shave">
@@ -47,7 +47,7 @@
   </header>
 	<main id="content">
   	<section id="demo" class="section section--demo">
-			<h2 class="demo__title">Demo</h2>
+			<button id="button" class="demo__button"><span class="demo__title">Click To 'Shave' ✁</span></button>
 			<p id="demo-text" class="demo__text">
         Shave is a zero dependency javascript plugin that multi-line truncates text to fit within a html element based on a set max-height.
 				It then stores the diff of the original text string in a hidden &lt;span&gt; element following the visible text.
@@ -123,8 +123,7 @@
           Made by <a href="https://github.com/dollarshaveclub">Dollar Shave Club Engineering</a>.
         </h2>
     </footer>
-  <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
-	<script src="shave.js"></script>
+  <script src="shave.js"></script>
 	<script src="main.js"></script>
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 
