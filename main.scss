@@ -1,1 +1,291 @@
-@import 'sassimple/mixins/sassimple';
+@charset "utf-8";
+@import 'bower_components/sassimple/mixins/sassimple';
+@font-face {
+    font-family: 'action_manbold';
+    src: url('Action_Man_Bold-webfont.eot');
+    src: url('Action_Man_Bold-webfont.woff') format('woff'),
+         url('Action_Man_Bold-webfont.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'action_man_shadedregular';
+    src: url('Action_Man_Shaded-webfont.eot');
+    src: url('Action_Man_Shaded-webfont.woff') format('woff'),
+         url('Action_Man_Shaded-webfont.ttf') format('truetype');
+}
+
+// Fonts (https://www.fontsquirrel.com/fonts/Action-Man?filter%5Blicense%5D%5B0%5D=web)
+$font-family: sans-serif;
+$font-family-alt: 'action_manbold';
+$font-family-alt-outline: 'action_man_shadedregular';
+
+// Theme (reds)
+$color-theme: #bf484d;
+$color-theme-lt: #f4c6ca;
+$color-theme-dark: darken($color-theme, 20%);
+$color-theme-med-dark: darken($color-theme, 15%);
+$color-theme-med: lighten($color-theme, 15%);
+$color-theme-med-lt: lighten($color-theme-med, 10%);
+$color-theme-x-lt: lighten($color-theme-lt, 10%);
+
+// Greys
+$color-grey-lt: #eee;
+$color-grey-md: #999;
+$color-grey-dark: #555;
+
+// Sizes
+$size: 1rem;
+$size-x-sm: 34rem;
+$size-sm: 48rem;
+$size-md: 62rem;
+$size-lg: 75rem;
+
+// Spacing
+$space: 1rem;
+$space-sm: .25rem;
+$space-med-sm: .5rem;
+$space-med: 2rem;
+$space-lg: 4rem;
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  box-sizing: border-box;
+  font-family: $font-family;
+  text-size-adjust: 2;
+}
+article,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+pre {
+  display: block;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+img {
+  border-style: none;
+  max-width: 100%;
+  vertical-align: middle;
+}
+figure > img {
+    display: block;
+}
+ul,
+ol {
+
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+h1,
+h2,
+h3 {
+  font-family: $font-family-alt;
+}
+h1,
+h2 {
+  color: $color-theme;
+  text-align: center;
+}
+h1 {
+  font-size: 1.25rem;
+  @media (min-width: $size-sm) {
+    font-size: 2.25rem;
+  }
+}
+h3 {
+  color: $color-grey-dark;
+}
+header,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+pre {
+  margin-left: $space;
+  margin-right: $space;
+  @media (min-width: $size-sm) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $size-sm;
+  }
+}
+a {
+  text-decoration: none;
+  &:active,
+  &:hover {
+    outline-width: 0;
+    text-decoration: underline;
+  }
+}
+pre,
+code {
+  background-color: $color-grey-lt;
+}
+code {
+  padding: $space-sm;
+  color: $color-grey-dark;
+  padding: $space-sm;
+  h1,
+  h3,
+  h3 {
+    background-color: $color-theme-lt;
+  }
+}
+pre {
+  border: 1px solid darken($color-grey-lt, 10%);
+  border-radius: $space-sm;
+  overflow: hidden;
+  padding: 0;
+  > code {
+    display: block;
+    font-size: 1rem;
+    float: left;
+    padding: $space;
+    text-shadow: 0 1px 0 darken($color-grey-lt, 10%);
+  }
+}
+header {
+}
+section {
+  @media (min-width: $size-sm) {
+    padding: $space 0;
+  }
+  h2 {
+    border-top: 1px solid $color-grey-lt;
+    padding-top: $space;
+    @media (min-width: $size-sm) {
+      padding-top: $space-med;
+    }
+  }
+}
+nav {
+  text-align: center;
+}
+p,
+li {
+  color: $color-grey-dark;
+  font-size: 1rem;
+  line-height: 1.5;
+  @media (min-width: $size-sm) {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
+}
+footer h2 {
+  text-align: center;
+  &:after {
+    content: '✁';
+    font-size: 2rem;
+    display: block;
+  }
+  a {
+    color: $color-theme;
+    text-decoration: underline;
+  }
+}
+.summary {
+  border-top: 1px solid $color-grey-lt;
+  color: $color-grey-dark;
+  font-size: 1rem;
+  padding-top: $space;
+  text-shadow: 0 1px 0 white;
+  @media (min-width: $size-sm) {
+    padding: $space-med 0;
+    font-size: 1.75rem;
+  }
+  &:after {
+    content: '✁';
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+  }
+}
+.demo {
+  &__title {
+    border: 0;
+    color: $color-theme-dark;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    text-shadow: 0 1px 0 $color-theme-med;
+    @media (min-width: $size-sm) {
+      font-size: 3.5rem;
+    }
+  }
+  &__text {
+    color: $color-theme-dark;
+    font-family: serif;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    text-shadow: 0 1px 0 $color-theme-med;
+    @media (min-width: $size-sm) {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+  }
+}
+.section {
+  &--demo {
+    background-color: $color-theme;
+    padding: $space 0;
+    @media (min-width: $size-sm) {
+      padding: $space-lg 0;
+    }
+  }
+  &--points {
+    h2 {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+  &--install {
+
+  }
+  &--usage {
+    h3,
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    pre {
+      margin-bottom: $space-med;
+      margin-top: 0;
+    }
+  }
+  &--examples {
+    p {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+@font-face {
+  font-family: 'action_manbold';
+  src: url("Action_Man_Bold-webfont.eot");
+  src: url("Action_Man_Bold-webfont.woff") format("woff"), url("Action_Man_Bold-webfont.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'action_man_shadedregular';
+  src: url("Action_Man_Shaded-webfont.eot");
+  src: url("Action_Man_Shaded-webfont.woff") format("woff"), url("Action_Man_Shaded-webfont.ttf") format("truetype"); }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-size-adjust: 2; }
+
+article,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+pre {
+  display: block; }
+
+b,
+strong {
+  font-weight: bolder; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible; }
+
+img {
+  border-style: none;
+  max-width: 100%;
+  vertical-align: middle; }
+
+figure > img {
+  display: block; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+h1,
+h2,
+h3 {
+  font-family: "action_manbold"; }
+
+h1,
+h2 {
+  color: #bf484d;
+  text-align: center; }
+
+h1 {
+  font-size: 1.25rem; }
+  @media (min-width: 48rem) {
+    h1 {
+      font-size: 2.25rem; } }
+
+h3 {
+  color: #555; }
+
+header,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+pre {
+  margin-left: 1rem;
+  margin-right: 1rem; }
+  @media (min-width: 48rem) {
+    header,
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    li,
+    pre {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 48rem; } }
+
+a {
+  text-decoration: none; }
+  a:active, a:hover {
+    outline-width: 0;
+    text-decoration: underline; }
+
+pre,
+code {
+  background-color: #eee; }
+
+code {
+  padding: 0.25rem;
+  color: #555;
+  padding: 0.25rem; }
+  code h1,
+  code h3,
+  code h3 {
+    background-color: #f4c6ca; }
+
+pre {
+  border: 1px solid #d5d5d5;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  padding: 0; }
+  pre > code {
+    display: block;
+    font-size: 1rem;
+    float: left;
+    padding: 1rem;
+    text-shadow: 0 1px 0 #d5d5d5; }
+
+@media (min-width: 48rem) {
+  section {
+    padding: 1rem 0; } }
+
+section h2 {
+  border-top: 1px solid #eee;
+  padding-top: 1rem; }
+  @media (min-width: 48rem) {
+    section h2 {
+      padding-top: 2rem; } }
+
+nav {
+  text-align: center; }
+
+p,
+li {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5; }
+  @media (min-width: 48rem) {
+    p,
+    li {
+      font-size: 1.25rem;
+      line-height: 1.75; } }
+
+footer h2 {
+  text-align: center; }
+  footer h2:after {
+    content: '✁';
+    font-size: 2rem;
+    display: block; }
+  footer h2 a {
+    color: #bf484d;
+    text-decoration: underline; }
+
+.summary {
+  border-top: 1px solid #eee;
+  color: #555;
+  font-size: 1rem;
+  padding-top: 1rem;
+  text-shadow: 0 1px 0 white; }
+  @media (min-width: 48rem) {
+    .summary {
+      padding: 2rem 0;
+      font-size: 1.75rem; } }
+  .summary:after {
+    content: '✁';
+    font-size: 2rem;
+    display: block;
+    text-align: center; }
+
+.demo__title {
+  border: 0;
+  color: #772a2d;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  text-shadow: 0 1px 0 #d38184; }
+  @media (min-width: 48rem) {
+    .demo__title {
+      font-size: 3.5rem; } }
+
+.demo__text {
+  color: #772a2d;
+  font-family: serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  text-shadow: 0 1px 0 #d38184; }
+  @media (min-width: 48rem) {
+    .demo__text {
+      font-size: 2rem;
+      line-height: 1.5; } }
+
+.section--demo {
+  background-color: #bf484d;
+  padding: 1rem 0; }
+  @media (min-width: 48rem) {
+    .section--demo {
+      padding: 4rem 0; } }
+
+.section--points h2 {
+  border-top: 0;
+  padding-top: 0; }
+
+.section--usage h3,
+.section--usage p {
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.section--usage pre {
+  margin-bottom: 2rem;
+  margin-top: 0; }
+
+.section--examples p {
+  text-align: center; }
