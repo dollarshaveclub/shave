@@ -14,13 +14,14 @@ function shave(target, maxheight, opts) {
   }
   var hasOpts = typeof opts !== 'undefined';
   var defaults = {
-    character: hasOpts ? opts.character : '&hellip;',
-    classname: hasOpts ? opts.classname : 'js-shave'
+    character: hasOpts && opts.character ? opts.character : '&hellip;',
+    classname: hasOpts && opts.classname ? opts.classname : 'js-shave'
   };
   var shaveCharWrap = '<span class="js-shave-char">' + defaults.character + '</span>';
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    var span = el.querySelector(defaults.classname);
+    var span = el.querySelector('.'+ defaults.classname);
+    console.log(span, defaults.classname);
     if (el.offsetHeight < maxheight && span) {
       el.removeChild(el.querySelector('.js-shave-char'));
       var _text = el.textContent;
