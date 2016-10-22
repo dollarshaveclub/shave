@@ -5,6 +5,12 @@ const mqpacker = require('css-mqpacker');
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 
+gulp.task('copy', function() {
+  return gulp
+    .src('bower_components/shave/dist/shave.js')
+    .pipe(gulp.dest(''));
+});
+
 gulp.task('styles', function() {
   //const processors = [mqpacker];
   return gulp
@@ -16,4 +22,4 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(''));
 });
 
-gulp.task('default', ['styles']);
+gulp.task('default', ['styles', 'copy']);
