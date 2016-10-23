@@ -113,6 +113,12 @@ h1 {
     font-size: 2.25rem;
   }
 }
+h2 {
+	a {
+		color: $color-theme;
+		text-decoration: underline;
+	}
+}
 h3 {
   color: $color-grey-dark;
 }
@@ -143,6 +149,8 @@ a {
 pre,
 code {
   background-color: $color-grey-lt;
+	border: 1px solid darken($color-grey-lt, 10%);
+	border-radius: $space-sm;
 }
 code {
   padding: $space-sm;
@@ -156,10 +164,10 @@ code {
 }
 pre {
   border: 1px solid darken($color-grey-lt, 10%);
-  border-radius: $space-sm;
-  overflow: hidden;
+  overflow: auto;
   padding: 0;
   > code {
+		border: 0;
     display: block;
     font-size: 1rem;
     float: left;
@@ -189,6 +197,11 @@ li {
   color: $color-grey-dark;
   font-size: 1rem;
   line-height: 1.5;
+	a {
+		&:visited {
+			color: inherit;
+		}
+	}
   @media (min-width: $size-sm) {
     font-size: 1.25rem;
     line-height: 1.75;
