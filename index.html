@@ -47,16 +47,20 @@
 		This means the original text remains in tact!</p>
   </header>
 	<main id="content">
-  	<section id="demo" class="section section--demo">
-			<button id="button" class="demo__button">Click To 'Shave' ✁</button>
+		<section id="demo" class="section section--demo">
+			<header>
+				<button id="button" class="demo__button">Click To 'Shave' ✁</button>
+			</header>
 			<p id="demo-text" class="demo__text">
-        Shave is a zero dependency javascript plugin that multi-line truncates text to fit within a html element based on a set max-height.
+      	Shave is a zero dependency javascript plugin that multi-line truncates text to fit within a html element based on a set max-height.
 				It then stores the diff of the original text string in a hidden &lt;span&gt; element following the visible text.
 				This means the original text remains in tact!
 			</p>
 		</section>
 		<section id="points" class="section section--points">
-			<h2><a href="https://github.com/dollarshaveclub/shave">Shave</a>, compared to other truncation plugins:</h2>
+			<header>
+				<h2><a href="https://github.com/dollarshaveclub/shave">Shave</a>, compared to other truncation plugins:</h2>
+			</header>
 			<ol>
 				<li>maintains the original text after truncation.</li>
 				<li>does not require other libraries</li>
@@ -64,70 +68,69 @@
 				<li>is very lightweight - ~1.5kb unminified</li>
 				<li>allows for custom ellipsis strings and class names but doesn't over complicate what's needed to truncated text within a html element.</li>
 			</ol>
-  	</section>
-    <section id="install" class="section section--install">
+		</section>
+  	<section id="install" class="section section--install">
 			<header>
-      	<h2>Installing from a package manager</h2>
+    		<h2>Installing from a package manager</h2>
 			</header>
 			<h3>NPM</h3>
-      <pre><code>npm i shave --save-dev</code></pre>
-      <h3>Bower</h3>
-      <pre><code>bower i shave --save-dev</code></pre>
-    </section id="setup" class="section section--setup">
-			<header>
-      	<h2>Setup</h2>
-			</header>
-      <ol>
-        <li>
-          Add <code>dist/shave.js</code>.
-        </li>
-        <li>shave text to your set max height witin the element that you select.</li>
-      </ol>
+    	<pre><code>npm i shave --save-dev</code></pre>
+    	<h3>Bower</h3>
+    	<pre><code>bower i shave --save-dev</code></pre>
 		</section>
-    <section id="usage" class="section section--usage">
-				<header>
-					<h2>Usage</h2>
-				<header>
-        <pre><code>shave('selector', maxheight);</code></pre>
-        <p>
-					Shave also provides options <em>only</em> to overwrite what it uses.
-				</p>
-				<p>
-					So, if you'd like have custom class names and <em>not</em> use <code>.js-shave</code>:
-				</p>
-				<pre><code>shave('selector', maxheight, {classname: 'classname'});</code>
-				</pre>
-				<p>
-					Or, if you'd like to have custom characters (instead of the standard ellipsis):
-				</p>
-				<pre><code>shave('selector', maxheight, {character: '✁'});</code>
-				</pre>
-				<p>
-					Or, both:
-				</p>
-				<pre><code>shave('selector', maxheight, {classname: 'classname', character: '✁' });</code>
-				</pre>
-				<p>
-					You can also use shave as a jQuery or Zepto plugin.
-				</p>
-				<pre><code>$('selector').shave(maxheight);</code>
-				</pre>
-				<p>
-					And, here's a jQuery/Zepto example with custom options:
-				</p>
-				<pre><code>$('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  });</code></pre>
-			</section>
-			<section id="examples" class="section section--examples">
-				<header>
-					<h2>Examples</h2>
-				</header>
-				<p>
-					<a href="http://codepen.io/yowainwright/pen/VKVXRa">Codepen</a>, <em>plain</em> javascript.
-				</p>
-				<p>
-					<a href="http://codepen.io/yowainwright/pen/c35ad7a281bc58ce6f89d2adb94c5d14/">Codepen</a>, <em>jQuery</em> or <em>Zepto</em>.
-			</section>
-		</main>
+  	<section id="setup" class="section section--setup">
+			<header>
+    		<h2>Setup</h2>
+			</header>
+    	<ol>
+      	<li>Add <code>dist/shave.js</code>.</li>
+      	<li>shave text to your set max height witin the element that you select.</li>
+    	</ol>
+		</section>
+  	<section id="usage" class="section section--usage">
+			<header>
+				<h2>Usage</h2>
+			<header>
+      <pre><code>shave('selector', maxheight);</code></pre>
+      <p>
+				Shave also provides options <em>only</em> to overwrite what it uses.
+			</p>
+			<p>
+				So, if you'd like have custom class names and <em>not</em> use <code>.js-shave</code>:
+			</p>
+			<pre><code>shave('selector', maxheight, {classname: 'classname'});</code>
+			</pre>
+			<p>
+				Or, if you'd like to have custom characters (instead of the standard ellipsis):
+			</p>
+			<pre><code>shave('selector', maxheight, {character: '✁'});</code>
+			</pre>
+			<p>
+				Or, both:
+			</p>
+			<pre><code>shave('selector', maxheight, {classname: 'classname', character: '✁' });</code>
+			</pre>
+			<p>
+				You can also use shave as a jQuery or Zepto plugin.
+			</p>
+			<pre><code>$('selector').shave(maxheight);</code>
+			</pre>
+			<p>
+				And, here's a jQuery/Zepto example with custom options:
+			</p>
+			<pre><code>$('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  });</code></pre>
+		</section>
+		<section id="examples" class="section section--examples">
+			<header>
+				<h2>Examples</h2>
+			</header>
+			<p>
+				<a href="http://codepen.io/yowainwright/pen/VKVXRa">Codepen</a>, <em>plain</em> javascript.
+			</p>
+			<p>
+				<a href="http://codepen.io/yowainwright/pen/c35ad7a281bc58ce6f89d2adb94c5d14/">Codepen</a>, <em>jQuery</em> or <em>Zepto</em>.
+		</section>
+	</main>
 		<footer>
         <h2>
           <a href="https://github.com/dollarshaveclub/shave">Shave</a>, made by <a href="https://github.com/dollarshaveclub">Dollar Shave Club Engineering</a>.
