@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Shave is a zero dependency javascript plugin that truncates multi-line text to fit within a html element based on a set max-height.</title>
 	<meta charset="utf-8">
@@ -40,7 +40,7 @@
 			<a href="https://twitter.com/home?status=Shave%20is%20a%200%20dep%20js%20lib%20that%20truncates%20multiline%20text%20to%20fit%20within%20a%20html%20element%20%E2%9C%81https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%40DSCEngineering%20%23JavaScript%20%F0%9F%92%AA">
 				<img alt="Share" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000" />
 			</a>
-			<iframe id="ghbtns" class="nav__item--gh" style="position: relative; left: -14px;top: 6px;" src="https://ghbtns.com/github-btn.html?user=dollarshaveclub&repo=shave&type=star" frameborder="0" scrolling="0" width="60px" height="20px"></iframe>
+			<iframe id="ghbtns" class="nav__item--gh" style="border: 0; height: 20px; overflow: hidden; position: relative; left: -14px; top: 6px; width: 60px;" src="https://ghbtns.com/github-btn.html?user=dollarshaveclub&repo=shave&type=star"></iframe>
 		</nav>
 		<p class="summary"><a href="https://github.com/dollarshaveclub/shave">Shave</a> is a zero dependency javascript plugin that truncates multi-line text to fit within a html element based on a set max-height.
 		It then stores the diff of the original text string in a hidden &lt;span&gt; element following the visible text.
@@ -66,21 +66,28 @@
 			</ol>
   	</section>
     <section id="install" class="section section--install">
-      <h2>Installing from a package manager</h2>
+			<header>
+      	<h2>Installing from a package manager</h2>
+			</header>
 			<h3>NPM</h3>
       <pre><code>npm i shave --save-dev</code></pre>
       <h3>Bower</h3>
       <pre><code>bower i shave --save-dev</code></pre>
     </section id="setup" class="section section--setup">
-      <h2>Setup</h2>
+			<header>
+      	<h2>Setup</h2>
+			</header>
       <ol>
         <li>
           Add <code>dist/shave.js</code>.
         </li>
         <li>shave text to your set max height witin the element that you select.</li>
       </ol>
+		</section>
     <section id="usage" class="section section--usage">
-				<h2>Usage</h2>
+				<header>
+					<h2>Usage</h2>
+				<header>
         <pre><code>shave('selector', maxheight);</code></pre>
         <p>
 					Shave also provides options <em>only</em> to overwrite what it uses.
@@ -111,7 +118,9 @@
 				<pre><code>$('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  });</code></pre>
 			</section>
 			<section id="examples" class="section section--examples">
-				<h2>Examples</h2>
+				<header>
+					<h2>Examples</h2>
+				</header>
 				<p>
 					<a href="http://codepen.io/yowainwright/pen/VKVXRa">Codepen</a>, <em>plain</em> javascript.
 				</p>
