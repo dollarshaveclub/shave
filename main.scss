@@ -275,6 +275,11 @@ footer h2 {
     @media (min-width: $size-sm) {
       padding: $space-lg 0;
     }
+		h2 {
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
   }
   &--points {
     h2 {
