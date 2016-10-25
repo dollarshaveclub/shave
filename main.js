@@ -4,10 +4,10 @@ btn.addEventListener('click', function() {
       hasShave = text.querySelector('#demo-text .js-shave');
   if (hasShave !== null) {
     shave(text, 1000);
-    btn.textContent = 'Click to \'shave\' ✁';
+    btn.textContent = 'Truncate Text ✁';
     return;
   }
-  shave(text, 80, {character: '...🐔 (Shave works!)'});
-  btn.textContent = 'Click to \'unshave\' ⏎';
+  shave(text, 80, {character: '...'});
+  btn.textContent = 'Reset ⏎';
   return;
 }, false);
