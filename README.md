@@ -1,7 +1,7 @@
 ![shave](http://imgh.us/shave.svg)
 
-[![npm version 0.1.2](https://badge.fury.io/js/shave.svg)](https://www.npmjs.com/package/shave)
-[![Bower version 0.1.2](https://badge.fury.io/bo/shave.svg)](https://github.com/dollarshaveclub/shave)
+[![npm version 0.1.4](https://badge.fury.io/js/shave.svg)](https://www.npmjs.com/package/shave)
+[![Bower version 0.1.4](https://badge.fury.io/bo/shave.svg)](https://github.com/dollarshaveclub/shave)
 [![Build Status](https://travis-ci.org/dollarshaveclub/shave.svg?branch=master)](https://travis-ci.org/dollarshaveclub/shave)
 [![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%20is%20a%200%20dep%20js%20lib%20that%20truncates%20multiline%20text%20to%20fit%20within%20a%20html%20element%20%E2%9C%81https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%40DSCEngineering%20%23JavaScript%20%F0%9F%92%AA)
 # Shave
@@ -14,6 +14,7 @@
 -   only requires a selector and a max height
 -   is very lightweight - `~1.5kb` unminified
 -   allows for custom ellipsis strings and class names but doesn't over complicate.
+-   is fast and capable of truncating text within lots of elements [quickly](http://codepen.io/pwfisher/full/ozVAyr/).
 -   is additive. It will play nice with other javascript libraries and more truncation features can easily be built with it.
 
 ## Installing from a package manager
@@ -70,3 +71,7 @@ $('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  
 ## Notes
 
 `text-overflow: ellipsis` is the way to go when truncating text to a single line. Shave does something very similar but for _multiple lines_.
+
+ _Shave_ implements a [binary search](http://oli.me.uk/2013/06/08/searching-javascript-arrays-with-a-binary-search/) to truncate text in the most optimal way possible.
+
+Browser support notes will be added soon. 🍻

@@ -42,7 +42,7 @@ function shave(target, maxHeight, opts) {
     var min = 0;
     var pivot = void 0;
     while (min < max) {
-      pivot = (min + max + 1) >> 1;
+      pivot = min + max + 1 >> 1;
       el.textContent = words.slice(0, pivot).join(' ');
       el.insertAdjacentHTML('beforeend', charHtml);
       if (el.offsetHeight > maxHeight) max = pivot - 1;else min = pivot;
