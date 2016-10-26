@@ -1,56 +1,54 @@
-export default function shave(target, maxheight, opts) {
+
+export default function shave(target, maxHeight, opts) {
+  if (!maxHeight) throw Error('maxHeight is required');
   let els = typeof target === 'string' ? document.querySelectorAll(target) : target;
-  if (!('length' in els)) {
-    els = [els];
-  }
-  if (!maxheight) {
-    throw Error('maxHeight is required');
-  }
-  const hasOpts = typeof opts !== 'undefined';
+  if (!('length' in els)) els = [els];
+
   const defaults = {
-    character: hasOpts && opts.character ? opts.character : '&hellip;',
-    classname: hasOpts && opts.classname ? opts.classname : 'js-shave',
+    character: '…',
+    classname: 'js-shave',
   };
-  const shaveCharWrap = `<span class="js-shave-char">${defaults.character}</span>`;
+  const character = opts && opts.character || defaults.character;
+  const classname = opts && opts.classname || defaults.classname;
+  const charHtml = `<span class="js-shave-char">${character}</span>`;
+
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
-    const span = el.querySelector(`.${defaults.classname}`);
+    const span = el.querySelector(`.${classname}`);
+
+    // If element text has already been shaved
     if (span) {
+      // Remove the ellipsis to recapture the original text
       el.removeChild(el.querySelector('.js-shave-char'));
-      const replacedtext = el.textContent;
-      el.removeChild(span);
-      el.textContent = replacedtext;
+      el.textContent = el.textContent; // nuke span, recombine text
     }
-    if (el.offsetHeight < maxheight) return;
-    const text = el.textContent;
-    let trimmedText = text;
+
+    // If already short enough, we're done
+    if (el.offsetHeight < maxHeight) break;
+
+    const fullText = el.textContent;
+    let trimmedText = fullText;
+    let lastSpace;
+
     do {
-      const lastSpace = trimmedText.lastIndexOf(' ');
-      if (lastSpace < 0) break;
-      trimmedText = trimmedText.substr(0, lastSpace);
+      lastSpace = trimmedText.lastIndexOf(' ');
+      if (lastSpace < 0) break; // single word is too tall, do nothing
+      trimmedText = trimmedText.slice(0, lastSpace);
       el.textContent = trimmedText;
-    } while (el.offsetHeight > maxheight);
-    let k = 0;
-    let diff = '';
-    for (let j = 0; j < text.length; j++) {
-      if (trimmedText[k] !== text[j] || i === trimmedText.length) {
-        diff += text[j];
-      } else {
-        k++;
-      }
-    }
-    el.insertAdjacentHTML(
-      'beforeend',
-      `${shaveCharWrap}<span class="${defaults.classname}" style="display:none;">${diff}</span>`
-    );
-    return;
+      el.insertAdjacentHTML('beforeend', charHtml);
+    } while (el.offsetHeight > maxHeight);
+
+    const diff = fullText.slice(lastSpace);
+
+    el.insertAdjacentHTML('beforeend',
+      `<span class="${classname}" style="display:none;">${diff}</span>`);
   }
 }
 const plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    shave: function shaveFunc(maxheight, opts) {
-      return shave(this, maxheight, opts);
+    shave: function shaveFunc(maxHeight, opts) {
+      return shave(this, maxHeight, opts);
     },
   });
 }
