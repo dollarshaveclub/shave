@@ -4,56 +4,63 @@
   (global.shave = factory());
 }(this, (function () { 'use strict';
 
-function shave(target, maxheight, opts) {
+function shave(target, maxHeight, opts) {
+  if (!maxHeight) throw Error('maxHeight is required');
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
-  if (!('length' in els)) {
-    els = [els];
-  }
-  if (!maxheight) {
-    throw Error('maxHeight is required');
-  }
-  var hasOpts = typeof opts !== 'undefined';
+  if (!('length' in els)) els = [els];
+
   var defaults = {
-    character: hasOpts && opts.character ? opts.character : '&hellip;',
-    classname: hasOpts && opts.classname ? opts.classname : 'js-shave'
+    character: '…',
+    classname: 'js-shave'
   };
-  var shaveCharWrap = '<span class="js-shave-char">' + defaults.character + '</span>';
+  var character = opts && opts.character || defaults.character;
+  var classname = opts && opts.classname || defaults.classname;
+  var charHtml = '<span class="js-shave-char">' + character + '</span>';
+
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    var span = el.querySelector('.' + defaults.classname);
+    var span = el.querySelector('.' + classname);
+
+    // If element text has already been shaved
     if (span) {
+      // Remove the ellipsis to recapture the original text
       el.removeChild(el.querySelector('.js-shave-char'));
-      var replacedtext = el.textContent;
-      el.removeChild(span);
-      el.textContent = replacedtext;
+      el.textContent = el.textContent; // nuke span, recombine text
     }
-    if (el.offsetHeight < maxheight) return;
-    var text = el.textContent;
-    var trimmedText = text;
-    do {
-      var lastSpace = trimmedText.lastIndexOf(' ');
-      if (lastSpace < 0) break;
-      trimmedText = trimmedText.substr(0, lastSpace);
-      el.textContent = trimmedText;
-    } while (el.offsetHeight > maxheight);
-    var k = 0;
-    var diff = '';
-    for (var j = 0; j < text.length; j++) {
-      if (trimmedText[k] !== text[j] || i === trimmedText.length) {
-        diff += text[j];
-      } else {
-        k++;
-      }
+
+    // If already short enough, we're done
+    if (el.offsetHeight < maxHeight) break;
+
+    var fullText = el.textContent;
+    var words = fullText.split(' ');
+
+    // If 0 or 1 words, we're done
+    if (words.length < 2) break;
+
+    // Binary search for number of words which can fit in allotted height
+    var max = words.length - 1;
+    var min = 0;
+    var pivot = void 0;
+    while (min < max) {
+      pivot = (min + max + 1) >> 1;
+      el.textContent = words.slice(0, pivot).join(' ');
+      el.insertAdjacentHTML('beforeend', charHtml);
+      if (el.offsetHeight > maxHeight) max = pivot - 1;else min = pivot;
     }
-    el.insertAdjacentHTML('beforeend', shaveCharWrap + '<span class="' + defaults.classname + '" style="display:none;">' + diff + '</span>');
-    return;
+
+    el.textContent = words.slice(0, max).join(' ');
+    el.insertAdjacentHTML('beforeend', charHtml);
+    var diff = words.slice(max + 1).join(' ');
+
+    el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
   }
 }
+
 var plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
-    shave: function shaveFunc(maxheight, opts) {
-      return shave(this, maxheight, opts);
+    shave: function shaveFunc(maxHeight, opts) {
+      return shave(this, maxHeight, opts);
     }
   });
 }
