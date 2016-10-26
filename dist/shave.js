@@ -32,22 +32,30 @@ function shave(target, maxHeight, opts) {
     if (el.offsetHeight < maxHeight) break;
 
     var fullText = el.textContent;
-    var trimmedText = fullText;
-    var lastSpace = void 0;
+    var words = fullText.split(' ');
 
-    do {
-      lastSpace = trimmedText.lastIndexOf(' ');
-      if (lastSpace < 0) break; // single word is too tall, do nothing
-      trimmedText = trimmedText.slice(0, lastSpace);
-      el.textContent = trimmedText;
+    // If 0 or 1 words, we're done
+    if (words.length < 2) break;
+
+    // Binary search for number of words which can fit in allotted height
+    var max = words.length - 1;
+    var min = 0;
+    var pivot = void 0;
+    while (min < max) {
+      pivot = (min + max + 1) >> 1;
+      el.textContent = words.slice(0, pivot).join(' ');
       el.insertAdjacentHTML('beforeend', charHtml);
-    } while (el.offsetHeight > maxHeight);
+      if (el.offsetHeight > maxHeight) max = pivot - 1;else min = pivot;
+    }
 
-    var diff = fullText.slice(lastSpace);
+    el.textContent = words.slice(0, max).join(' ');
+    el.insertAdjacentHTML('beforeend', charHtml);
+    var diff = words.slice(max + 1).join(' ');
 
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
   }
 }
+
 var plugin = window.$ || window.jQuery || window.Zepto;
 if (plugin) {
   plugin.fn.extend({
