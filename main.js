@@ -1,13 +1,16 @@
-var btn = document.getElementById('button');
+var btn = document.getElementById('button')
+    textEl = document.getElementById('demo-text'),
+    textString = textEl.textContent;
 btn.addEventListener('click', function() {
-  var text = document.getElementById('demo-text'),
-      hasShave = text.querySelector('#demo-text .js-shave');
+  var hasShave = textEl.querySelector('#demo-text .js-shave');
+      console.log(textString);
+
   if (hasShave !== null) {
-    shave(text, 1000);
+    textEl.textContent = textString;
     btn.textContent = 'Truncate Text ✁';
     return;
   }
-  shave(text, 80, {character: '...'});
+  shave(textEl, 120);
   btn.textContent = 'Reset ⏎';
   return;
 }, false);
