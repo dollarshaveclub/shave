@@ -24,9 +24,7 @@ function shave(target, maxHeight, opts) {
     // If element text has already been shaved
     if (span) {
       // Remove the ellipsis to recapture the original text
-      console.log(el.textContent);
       el.removeChild(el.querySelector('.js-shave-char'));
-      console.log(el.textContent);
       el.textContent = el.textContent; // nuke span, recombine text
     }
 
