@@ -21,7 +21,7 @@ export default function shave(target, maxheight, opts) {
       el.removeChild(span);
       el.textContent = replacedtext;
     }
-    if (el.offsetHeight < maxheight) return;
+    if (el.scrollHeight < maxheight) return;
     const text = el.textContent;
     let trimmedText = text;
     do {
@@ -29,7 +29,7 @@ export default function shave(target, maxheight, opts) {
       if (lastSpace < 0) break;
       trimmedText = trimmedText.substr(0, lastSpace);
       el.textContent = trimmedText;
-    } while (el.offsetHeight > maxheight);
+    } while (el.scrollHeight > maxheight);
     let k = 0;
     let diff = '';
     for (let j = 0; j < text.length; j++) {
