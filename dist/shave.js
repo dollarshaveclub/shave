@@ -11,10 +11,12 @@ function shave(target, maxHeight, opts) {
 
   var defaults = {
     character: '…',
-    classname: 'js-shave'
+    classname: 'js-shave',
+    splitChar: ' '
   };
   var character = opts && opts.character || defaults.character;
   var classname = opts && opts.classname || defaults.classname;
+  var splitChar = opts && opts.splitChar || defaults.splitChar;
   var charHtml = '<span class="js-shave-char">' + character + '</span>';
 
   for (var i = 0; i < els.length; i++) {
@@ -32,7 +34,7 @@ function shave(target, maxHeight, opts) {
     if (el.offsetHeight < maxHeight) continue;
 
     var fullText = el.textContent;
-    var words = fullText.split(' ');
+    var words = fullText.split(splitChar);
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue;
@@ -43,14 +45,14 @@ function shave(target, maxHeight, opts) {
     var pivot = void 0;
     while (min < max) {
       pivot = min + max + 1 >> 1;
-      el.textContent = words.slice(0, pivot).join(' ');
+      el.textContent = words.slice(0, pivot).join(splitChar);
       el.insertAdjacentHTML('beforeend', charHtml);
       if (el.offsetHeight > maxHeight) max = pivot - 1;else min = pivot;
     }
 
-    el.textContent = words.slice(0, max).join(' ');
+    el.textContent = words.slice(0, max).join(splitChar);
     el.insertAdjacentHTML('beforeend', charHtml);
-    var diff = words.slice(max + 1).join(' ');
+    var diff = words.slice(max + 1).join(splitChar);
 
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
   }
