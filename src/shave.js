@@ -12,8 +12,7 @@ export default function shave(target, maxHeight, opts) {
   const classname = opts && opts.classname || defaults.classname;
   const charHtml = `<span class="js-shave-char">${character}</span>`;
 
-  for (let i = 0; i < els.length; i++) {
-    const el = els[i];
+  Array.from(els).forEach(el => {
     const span = el.querySelector(`.${classname}`);
 
     // If element text has already been shaved
@@ -50,7 +49,7 @@ export default function shave(target, maxHeight, opts) {
 
     el.insertAdjacentHTML('beforeend',
       `<span class="${classname}" style="display:none;">${diff}</span>`);
-  }
+  });
 }
 
 const plugin = window.$ || window.jQuery || window.Zepto;
