@@ -24,13 +24,13 @@ export default function shave(target, maxHeight, opts) {
     }
 
     // If already short enough, we're done
-    if (el.offsetHeight < maxHeight) break;
+    if (el.offsetHeight < maxHeight) continue;
 
     const fullText = el.textContent;
     const words = fullText.split(' ');
 
     // If 0 or 1 words, we're done
-    if (words.length < 2) break;
+    if (words.length < 2) continue;
 
     // Binary search for number of words which can fit in allotted height
     let max = words.length - 1;
