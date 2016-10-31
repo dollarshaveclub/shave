@@ -12,10 +12,12 @@ export default function shave(target, maxHeight, opts) {
   const classname = opts && opts.classname || defaults.classname;
   const charHtml = `<span class="js-shave-char">${character}</span>`;
 
-  for (let i = 0; i < els.length; i++) {
+  let i = 0;
+  let len = els.length;
+  while (len--) {
     const el = els[i];
     const span = el.querySelector(`.${classname}`);
-
+    i++;
     // If element text has already been shaved
     if (span) {
       // Remove the ellipsis to recapture the original text
