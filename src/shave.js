@@ -27,7 +27,8 @@ export default function shave(target, maxHeight, opts) {
     if (el.offsetHeight < maxHeight) continue;
 
     const fullText = el.textContent;
-    const words = fullText.split(' ');
+    // const words = fullText.split(' ');
+    const words = [...fullText];
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue;
