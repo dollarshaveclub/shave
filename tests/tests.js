@@ -20,5 +20,5 @@ QUnit.test("check shave iteration", function(assert) {
 });
 QUnit.test("check shave with non-spaced languages", function(assert) {
   shave('.test-3', 50, {character:'...', classname:'js-non-spaced-lang'});
-  assert.equal(document.querySelectorAll('.js-iteration-works').length, 3, 'there should be 1 truncated thing with a class .js-new-text');
+  assert.equal(document.querySelectorAll('.js-non-spaced-lang').length, 3, 'there should be 1 truncated thing with a class .js-new-text');
 });

@@ -4,6 +4,129 @@
   (global.shave = factory());
 }(this, (function () { 'use strict';
 
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
+
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
+        }
+      });
+    }
+
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
+
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
+        }
+      } catch (err) {
+        settle("throw", err);
+      }
+    }
+
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
+
+        case "throw":
+          front.reject(value);
+          break;
+
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
+
+      front = front.next;
+
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
+    }
+
+    this._invoke = send;
+
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
+
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
+
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
+  };
+
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
+
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
+
+var toConsumableArray = function (arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  } else {
+    return Array.from(arr);
+  }
+};
+
 function shave(target, maxHeight, opts) {
   if (!maxHeight) throw Error('maxHeight is required');
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
@@ -11,12 +134,10 @@ function shave(target, maxHeight, opts) {
 
   var defaults = {
     character: '…',
-    classname: 'js-shave',
-    splitChar: ' '
+    classname: 'js-shave'
   };
   var character = opts && opts.character || defaults.character;
   var classname = opts && opts.classname || defaults.classname;
-  var splitChar = opts && opts.splitChar || defaults.splitChar;
   var charHtml = '<span class="js-shave-char">' + character + '</span>';
 
   for (var i = 0; i < els.length; i++) {
@@ -34,7 +155,8 @@ function shave(target, maxHeight, opts) {
     if (el.offsetHeight < maxHeight) continue;
 
     var fullText = el.textContent;
-    var words = fullText.split(splitChar);
+    // const words = fullText.split(' ');
+    var words = [].concat(toConsumableArray(fullText));
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue;
@@ -45,14 +167,14 @@ function shave(target, maxHeight, opts) {
     var pivot = void 0;
     while (min < max) {
       pivot = min + max + 1 >> 1;
-      el.textContent = words.slice(0, pivot).join(splitChar);
+      el.textContent = words.slice(0, pivot).join(' ');
       el.insertAdjacentHTML('beforeend', charHtml);
       if (el.offsetHeight > maxHeight) max = pivot - 1;else min = pivot;
     }
 
-    el.textContent = words.slice(0, max).join(splitChar);
+    el.textContent = words.slice(0, max).join(' ');
     el.insertAdjacentHTML('beforeend', charHtml);
-    var diff = words.slice(max + 1).join(splitChar);
+    var diff = words.slice(max + 1).join(' ');
 
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
   }
