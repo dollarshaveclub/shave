@@ -42,13 +42,13 @@ export default function shave(target, maxHeight, opts) {
       pivot = (min + max + 1) >> 1;
       el.textContent = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot);
       el.insertAdjacentHTML('beforeend', charHtml);
-      if (el.offsetHeight > maxHeight) max = pivot - 1;
+      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2;
       else min = pivot;
     }
 
     el.textContent = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
     el.insertAdjacentHTML('beforeend', charHtml);
-    const diff = spaces ? words.slice(max + 1).join(' ') : words.slice(max + 1);
+    const diff = spaces ? words.slice(max + 1).join(' ') : words.slice(max);
 
     el.insertAdjacentHTML('beforeend',
       `<span class="${classname}" style="display:none;">${diff}</span>`);

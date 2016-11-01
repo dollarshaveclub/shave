@@ -16,6 +16,7 @@
 -   allows for custom ellipsis strings and class names but doesn't over complicate
 -   is fast and capable of truncating text within lots of elements [quickly](http://codepen.io/pwfisher/full/ozVAyr/)
 -   is additive. It will play nice with other javascript libraries and more truncation features can easily be built with it.
+-   supports non-spaced languages ([Non-ascii](https://en.wikipedia.org/wiki/ASCII)).
 
 ## Installing from a package manager
 
@@ -61,11 +62,18 @@ And here's a _jQuery/Zepto_ example with custom options:
 $('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  });
 ```
 
+If you're using a non-spaced language, you can support shave by setting an option `spaces` to `false`.
+```javascript
+$('selector').shave(maxheight, { classname: 'your-css-class', character: '✁', spaces: false });
+```
+
 ## Examples
 
 [Codepen example](http://codepen.io/yowainwright/pen/5f471214df90f43c7996c5914c88e858/) with plain javascript.
 
 [Codepen example](http://codepen.io/yowainwright/pen/c35ad7a281bc58ce6f89d2adb94c5d14/) with jQuery.
+
+[Codepen example](http://codepen.io/yowainwright/pen/wzVgMp) with a non-spaced language.
 
 ## Notes
 
