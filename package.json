@@ -1,14 +1,14 @@
 {
   "name": "shave",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
-	"files": [
+  "files": [
     "dist"
   ],
   "scripts": {
     "test": "gulp test",
-		"postpublish": "git tag $npm_package_version && git push origin --tags"
+    "postpublish": "git tag $npm_package_version && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -18,17 +18,17 @@
     "ellipsis",
     "truncate",
     "truncation",
-		"truncated",
-		"semantic",
-		"js",
-		"content",
+    "truncated",
+    "semantic",
+    "js",
+    "content",
     "shorten",
     "javascript",
     "text",
-		"shave",
-		"trim"
+    "shave",
+    "trim"
   ],
-  "author": "Jeff Wainwright <jjwainwright2@gmail.com> (jeffr.in)",
+  "author": "Jeff Wainwright <jjwainwright2@gmail.com> (jeffry.in)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dollarshaveclub/shave/issues"
@@ -43,6 +43,9 @@
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "6.1.0",
     "gulp": "^3.9.1",
+    "gulp-header": "^1.8.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
     "node-qunit-phantomjs": "^1.4.0",
     "qunit": "^0.9.1",
     "rollup": "^0.34.13",
