@@ -34,10 +34,13 @@ export default function shave(target, maxHeight, opts) {
     // Temporarily remove any CSS height for text height calculation
     const heightStyle = el.style.height;
     el.style.height = 'auto';
+    const maxHeightStyle = el.style.maxHeight;
+    el.style.maxHeight = 'none';
 
     // If already short enough, we're done
     if (el.offsetHeight < maxHeight) {
       el.style.height = heightStyle;
+      el.style.maxHeight = maxHeightStyle;
       continue;
     }
 
@@ -61,6 +64,7 @@ export default function shave(target, maxHeight, opts) {
       `<span class="${classname}" style="display:none;">${diff}</span>`);
 
     el.style.height = heightStyle;
+    el.style.maxHeight = maxHeightStyle;
   }
 }
 

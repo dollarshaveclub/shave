@@ -39,10 +39,13 @@ function shave(target, maxHeight, opts) {
     // Temporarily remove any CSS height for text height calculation
     var heightStyle = el.style.height;
     el.style.height = 'auto';
+    var maxHeightStyle = el.style.maxHeight;
+    el.style.maxHeight = 'none';
 
     // If already short enough, we're done
     if (el.offsetHeight < maxHeight) {
       el.style.height = heightStyle;
+      el.style.maxHeight = maxHeightStyle;
       continue;
     }
 
@@ -64,6 +67,7 @@ function shave(target, maxHeight, opts) {
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
 
     el.style.height = heightStyle;
+    el.style.maxHeight = maxHeightStyle;
   }
 }
 
