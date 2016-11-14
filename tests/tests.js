@@ -22,3 +22,11 @@ QUnit.test("check shave with non-spaced languages", function(assert) {
   shave('.test-3', 50, {character:'...', classname:'js-non-spaced-lang', spaces: false});
   assert.equal(document.querySelectorAll('.js-non-spaced-lang').length, 2, 'there should be 1 truncated thing with a class .js-new-text');
 });
+QUnit.test("check jquery and zepto or jquery", function(assert) {
+  $('#test-4').shave(50, {classname:'js-jquery-shave'});
+  assert.equal(document.querySelectorAll('.js-jquery-shave').length, 1, 'jQuery or Zepto should have been run.');
+});
+QUnit.test("check jquery chaining", function(assert) {
+  $('#test-5').shave(50).css('height', '50px');
+  assert.equal($('#test-5').css('height'), '50px', 'jQuery or Zepto should have been run.');
+});

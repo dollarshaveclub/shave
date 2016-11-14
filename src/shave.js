@@ -60,7 +60,8 @@ if (typeof window !== 'undefined') {
   if (plugin) {
     plugin.fn.extend({
       shave: function shaveFunc(maxHeight, opts) {
-        return shave(this, maxHeight, opts);
+        shave(this, maxHeight, opts);
+        return this;
       },
     });
   }
