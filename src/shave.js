@@ -71,11 +71,9 @@ export default function shave(target, maxHeight, opts) {
 if (typeof window !== 'undefined') {
   const plugin = window.$ || window.jQuery || window.Zepto;
   if (plugin) {
-    plugin.fn.extend({
-      shave: function shaveFunc(maxHeight, opts) {
-        shave(this, maxHeight, opts);
-        return this;
-      },
-    });
+    plugin.fn.shave = function shavePlugin(maxHeight, opts) {
+      shave(this, maxHeight, opts);
+      return this;
+    };
   }
 }
