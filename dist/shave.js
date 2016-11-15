@@ -30,14 +30,24 @@ function shave(target, maxHeight, opts) {
       el.textContent = el.textContent; // nuke span, recombine text
     }
 
-    // If already short enough, we're done
-    if (el.offsetHeight < maxHeight) continue;
-
     var fullText = el.textContent;
     var words = spaces ? fullText.split(' ') : fullText;
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue;
+
+    // Temporarily remove any CSS height for text height calculation
+    var heightStyle = el.style.height;
+    el.style.height = 'auto';
+    var maxHeightStyle = el.style.maxHeight;
+    el.style.maxHeight = 'none';
+
+    // If already short enough, we're done
+    if (el.offsetHeight < maxHeight) {
+      el.style.height = heightStyle;
+      el.style.maxHeight = maxHeightStyle;
+      continue;
+    }
 
     // Binary search for number of words which can fit in allotted height
     var max = words.length - 1;
@@ -55,6 +65,9 @@ function shave(target, maxHeight, opts) {
     var diff = spaces ? words.slice(max + 1).join(' ') : words.slice(max);
 
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
+
+    el.style.height = heightStyle;
+    el.style.maxHeight = maxHeightStyle;
   }
 }
 
