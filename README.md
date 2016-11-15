@@ -25,8 +25,12 @@ npm
 npm install shave --save-dev
 ```
 bower
-```
+```sh
 bower install shave --save-dev
+```
+yarn
+```sh
+yarn add shave --dev
 ```
 
 ## Usage
