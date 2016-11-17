@@ -32,7 +32,7 @@ function shave(target, maxHeight, opts) {
       el[textProp] = el[textProp]; // nuke span, recombine text
     }
 
-    var fullText = el.textContent;
+    var fullText = el[textProp];
     var words = spaces ? fullText.split(' ') : fullText;
 
     // If 0 or 1 words, we're done
