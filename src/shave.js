@@ -18,11 +18,13 @@ export default function shave(target, maxHeight, opts) {
     const el = els[i];
     const span = el.querySelector(`.${classname}`);
 
+    const textProp = el.textContent === undefined ? 'innerText' : 'textContent';
+
     // If element text has already been shaved
     if (span) {
       // Remove the ellipsis to recapture the original text
       el.removeChild(el.querySelector('.js-shave-char'));
-      el.textContent = el.textContent; // nuke span, recombine text
+      el[textProp] = el[textProp]; // nuke span, recombine text
     }
 
     const fullText = el.textContent;
@@ -50,13 +52,13 @@ export default function shave(target, maxHeight, opts) {
     let pivot;
     while (min < max) {
       pivot = (min + max + 1) >> 1;
-      el.textContent = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot);
+      el[textProp] = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot);
       el.insertAdjacentHTML('beforeend', charHtml);
       if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2;
       else min = pivot;
     }
 
-    el.textContent = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
+    el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
     el.insertAdjacentHTML('beforeend', charHtml);
     const diff = spaces ? words.slice(max + 1).join(' ') : words.slice(max);
 
