@@ -22,15 +22,15 @@
 
 npm
 ```sh
-npm install shave --save-dev
+npm install shave --save
 ```
 bower
 ```sh
-bower install shave --save-dev
+bower install shave --save
 ```
 yarn
 ```sh
-yarn add shave --dev
+yarn add shave
 ```
 
 ## Usage
