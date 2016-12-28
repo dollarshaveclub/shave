@@ -1,6 +1,6 @@
 {
   "name": "shave",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
   "files": [
@@ -30,7 +30,7 @@
     "trim"
   ],
   "author": "Jeff Wainwright <jjwainwright2@gmail.com> (jeffry.in)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dollarshaveclub/shave/issues"
   },

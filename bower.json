@@ -5,7 +5,7 @@
   "authors": [
     "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffry.in)"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "ellipsis",
     "truncate",
