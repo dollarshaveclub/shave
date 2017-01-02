@@ -47,13 +47,15 @@
     "gulp-header": "^1.8.8",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "node-qunit-phantomjs": "^1.4.0",
-    "qunit": "^0.9.1",
     "rollup": "^0.34.13",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^4.1.0",
     "rollup-plugin-eslint": "^2.0.2",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1"
+  },
+  "dependencies": {
+    "gulp-qunit": "^1.5.0",
+    "node-qunit-phantomjs": "^1.5.0"
   }
 }

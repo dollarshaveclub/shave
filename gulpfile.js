@@ -14,7 +14,7 @@ const banner = ['/**',
 ''].join('\n');
 
 gulp.task('test', function() {
-  qunit('tests/index.html');
+  qunit('tests/index.html', {'verbose': true});
 });
 
 gulp.task('minify', function() {
