@@ -60,7 +60,7 @@ export default function shave(target, maxHeight, opts) {
 
     el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
     el.insertAdjacentHTML('beforeend', charHtml);
-    const diff = spaces ? words.slice(max + 1).join(' ') : words.slice(max);
+    const diff = spaces ? words.slice(max).join(' ') : words.slice(max);
 
     el.insertAdjacentHTML('beforeend',
       `<span class="${classname}" style="display:none;">${diff}</span>`);
