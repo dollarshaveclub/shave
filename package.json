@@ -1,6 +1,6 @@
 {
   "name": "shave",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
   "files": [
@@ -52,9 +52,7 @@
     "rollup-plugin-commonjs": "^4.1.0",
     "rollup-plugin-eslint": "^2.0.2",
     "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-uglify": "^1.0.1"
-  },
-  "dependencies": {
+    "rollup-plugin-uglify": "^1.0.1",
     "gulp-qunit": "^1.5.0",
     "node-qunit-phantomjs": "^1.5.0"
   }
