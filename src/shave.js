@@ -25,7 +25,13 @@ export default function shave(target, maxHeight, opts) {
     if (span) {
       // Remove the ellipsis to recapture the original text
       el.removeChild(el.querySelector('.js-shave-char'));
-      el[textProp] = el[textProp]; // nuke span, recombine text
+      //Recombine text + remove span
+      if(htmlProp) {
+        el[textProp] = el[textProp] + span[textProp];
+        el.removeChild(el.querySelector(`.${classname}`));
+      } else {
+        el[textProp] = el[textProp];
+      }
     }
 
     const fullText = el[textProp];
