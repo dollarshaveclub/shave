@@ -3,9 +3,12 @@
 [![npm version 1.0.1](https://badge.fury.io/js/shave.svg)](https://www.npmjs.com/package/shave)
 [![Bower version 1.0.1](https://badge.fury.io/bo/shave.svg)](https://github.com/dollarshaveclub/shave)
 [![Build Status](https://travis-ci.org/dollarshaveclub/shave.svg?branch=master)](https://travis-ci.org/dollarshaveclub/shave)
+[![Greenkeeper badge](https://badges.greenkeeper.io/dollarshaveclub/shave.svg)](https://greenkeeper.io/)
 [![CDNJS](https://img.shields.io/cdnjs/v/shave.svg)](https://cdnjs.com/libraries/shave)
 [![Share](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/home?status=Shave%20is%20a%200%20dep%20js%20lib%20that%20truncates%20multiline%20text%20to%20fit%20within%20a%20html%20element%20%E2%9C%81https%3A%2F%2Fgithub.com%2Fdollarshaveclub%2Fshave%20%40DSCEngineering%20%23JavaScript%20%F0%9F%92%AA)
+
 # Shave
+
 
 **Shave** is a zero dependency javascript plugin that truncates multi-line text to fit within an html element based on a set *max-height*. It then stores the _diff_ of the original text string in a hidden `<span>` element following the visible text. This means the original text remains intact!
 
