@@ -8,23 +8,30 @@ export default function shave(target, maxHeight, opts) {
     character: '…',
     classname: 'js-shave',
     spaces: true,
+    html: false
   };
   const character = opts && opts.character || defaults.character;
   const classname = opts && opts.classname || defaults.classname;
   const spaces = opts && opts.spaces === false ? false : defaults.spaces;
   const charHtml = `<span class="js-shave-char">${character}</span>`;
+  const htmlProp = opts && opts.html || defaults.html;
 
   for (let i = 0; i < els.length; i++) {
     const el = els[i];
     const span = el.querySelector(`.${classname}`);
-
-    const textProp = el.textContent === undefined ? 'innerText' : 'textContent';
+    const textProp = htmlProp ? 'innerHTML' : el.textContent === undefined ? 'innerText' : 'textContent';
 
     // If element text has already been shaved
     if (span) {
       // Remove the ellipsis to recapture the original text
       el.removeChild(el.querySelector('.js-shave-char'));
-      el[textProp] = el[textProp]; // nuke span, recombine text
+      //Recombine text + remove span
+      if(htmlProp) {
+        el[textProp] = el[textProp] + span[textProp];
+        el.removeChild(el.querySelector(`.${classname}`));
+      } else {
+        el[textProp] = el[textProp];
+      }
     }
 
     const fullText = el[textProp];
