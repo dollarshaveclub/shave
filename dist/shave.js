@@ -45,7 +45,7 @@ function shave(target, maxHeight, opts) {
     el.style.maxHeight = 'none';
 
     // If already short enough, we're done
-    if (el.offsetHeight < maxHeight) {
+    if (el.offsetHeight <= maxHeight) {
       el.style.height = heightStyle;
       el.style.maxHeight = maxHeightStyle;
       continue;
