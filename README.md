@@ -55,6 +55,7 @@ yarn add shave
 ## Usage
 
 Add **dist/shave.js**.
+-  Or, **dist/jquery.shave.js** for jQuery/Zepto as of Shave >= v2.
 
 ## Syntax
 
@@ -76,7 +77,7 @@ Or both:
 ```javascript
 shave('selector', maxheight, {classname: 'classname', character: '✁' });
 ```
-You can also use **shave** as a [jQuery](http://jquery.com/) or [Zepto](http://zeptojs.com/) plugin.
+You can also use **shave** as a [jQuery](http://jquery.com/) or [Zepto](http://zeptojs.com/) plugin. As of Shave >= v2, use **dist/jquery.shave.js** for jQuery/Zepto.
 ```javascript
 $('selector').shave(maxheight);
 ```
