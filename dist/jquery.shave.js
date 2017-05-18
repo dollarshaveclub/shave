@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
-	(global.shave = factory());
+	(global.jquery = global.jquery || {}, global.jquery.shave = factory());
 }(this, (function () { 'use strict';
 
 /* global document, window */
@@ -65,10 +65,21 @@ function shaver(target, maxHeight, opts) {
 
 /* global document, window */
 function shave(target, maxHeight, opts) {
-  var els = document.querySelectorAll(target);
+  var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
+  if (!('length' in els)) els = [els];
   for (var i = 0; i < els.length; i += 1) {
     var el = els[i];
     shaver(el, maxHeight, opts);
+  }
+}
+
+if (typeof window !== 'undefined') {
+  var plugin = window.$ || window.jQuery || window.Zepto;
+  if (plugin) {
+    plugin.fn.shave = function shavePlugin(maxHeight, opts) {
+      shave(this, maxHeight, opts);
+      return this;
+    };
   }
 }
 
