@@ -1,10 +1,11 @@
 /* global document, window */
-function Shave(target, maxHeight, opts) {
+function shaveEl(target, maxHeight, opts = {}) {
   if (!maxHeight) throw Error('maxHeight is required');
   const el = target;
-  const character = (opts && opts.character) || '…';
-  const classname = (opts && opts.classname) || 'js-shave';
-  const spaces = (opts && opts.spaces) || true;
+  const styles = el.style;
+  const character = opts.character || '…';
+  const classname = opts.classname || 'js-shave';
+  const spaces = opts.spaces || false;
   const charHtml = `<span class="js-shave-char">${character}</span>`;
   const span = el.querySelector(`.${classname}`);
   const textProp = el.textContent === undefined ? 'innerText' : 'textContent';
@@ -23,15 +24,15 @@ function Shave(target, maxHeight, opts) {
   if (words.length < 2) return;
 
   // Temporarily remove any CSS height for text height calculation
-  const heightStyle = el.style.height;
-  el.style.height = 'auto';
-  const maxHeightStyle = el.style.maxHeight;
-  el.style.maxHeight = 'none';
+  const heightStyle = styles.height;
+  styles.height = 'auto';
+  const maxHeightStyle = styles.maxHeight;
+  styles.maxHeight = 'none';
 
   // If already short enough, we're done
   if (el.offsetHeight <= maxHeight) {
-    el.style.height = heightStyle;
-    el.style.maxHeight = maxHeightStyle;
+    styles.height = heightStyle;
+    styles.maxHeight = maxHeightStyle;
     return;
   }
 
@@ -54,8 +55,8 @@ function Shave(target, maxHeight, opts) {
   el.insertAdjacentHTML('beforeend',
     `<span class="${classname}" style="display:none;">${diff}</span>`);
 
-  el.style.height = heightStyle;
-  el.style.maxHeight = maxHeightStyle;
+  styles.height = heightStyle;
+  styles.maxHeight = maxHeightStyle;
 }
 
 export default function shave(target, maxHeight, opts) {
@@ -63,6 +64,6 @@ export default function shave(target, maxHeight, opts) {
   if (!('length' in els)) els = [els];
   for (let i = 0; i < els.length; i += 1) {
     const el = els[i];
-    Shave(el, maxHeight, opts);
+    shaveEl(el, maxHeight, opts);
   }
 }

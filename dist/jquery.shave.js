@@ -5,12 +5,15 @@
 }(this, (function () { 'use strict';
 
 /* global document, window */
-function Shave(target, maxHeight, opts) {
+function shaveEl(target, maxHeight) {
+  var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
   if (!maxHeight) throw Error('maxHeight is required');
   var el = target;
-  var character = opts && opts.character || '…';
-  var classname = opts && opts.classname || 'js-shave';
-  var spaces = opts && opts.spaces || true;
+  var styles = el.style;
+  var character = opts.character || '…';
+  var classname = opts.classname || 'js-shave';
+  var spaces = opts.spaces || false;
   var charHtml = '<span class="js-shave-char">' + character + '</span>';
   var span = el.querySelector('.' + classname);
   var textProp = el.textContent === undefined ? 'innerText' : 'textContent';
@@ -29,15 +32,15 @@ function Shave(target, maxHeight, opts) {
   if (words.length < 2) return;
 
   // Temporarily remove any CSS height for text height calculation
-  var heightStyle = el.style.height;
-  el.style.height = 'auto';
-  var maxHeightStyle = el.style.maxHeight;
-  el.style.maxHeight = 'none';
+  var heightStyle = styles.height;
+  styles.height = 'auto';
+  var maxHeightStyle = styles.maxHeight;
+  styles.maxHeight = 'none';
 
   // If already short enough, we're done
   if (el.offsetHeight <= maxHeight) {
-    el.style.height = heightStyle;
-    el.style.maxHeight = maxHeightStyle;
+    styles.height = heightStyle;
+    styles.maxHeight = maxHeightStyle;
     return;
   }
 
@@ -58,8 +61,8 @@ function Shave(target, maxHeight, opts) {
 
   el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
 
-  el.style.height = heightStyle;
-  el.style.maxHeight = maxHeightStyle;
+  styles.height = heightStyle;
+  styles.maxHeight = maxHeightStyle;
 }
 
 /* global document, window */
