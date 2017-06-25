@@ -1,17 +1,19 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
-	(global.jquery = global.jquery || {}, global.jquery.shave = factory());
+	(factory());
 }(this, (function () { 'use strict';
 
 /* global document, window */
-function shaver(target, maxHeight, opts) {
+function shaveEl(target, maxHeight) {
+  var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
   if (!maxHeight) throw Error('maxHeight is required');
   var el = target;
-  var character = opts && opts.character || '…';
-  var classname = opts && opts.classname || 'js-shave';
-  var spaces = true;
-  if (opts && opts.spaces === false) spaces = false;
+  var styles = el.style;
+  var character = opts.character || '…';
+  var classname = opts.classname || 'js-shave';
+  var spaces = opts.spaces || false;
   var charHtml = '<span class="js-shave-char">' + character + '</span>';
   var span = el.querySelector('.' + classname);
   var textProp = el.textContent === undefined ? 'innerText' : 'textContent';
@@ -30,15 +32,15 @@ function shaver(target, maxHeight, opts) {
   if (words.length < 2) return;
 
   // Temporarily remove any CSS height for text height calculation
-  var heightStyle = el.style.height;
-  el.style.height = 'auto';
-  var maxHeightStyle = el.style.maxHeight;
-  el.style.maxHeight = 'none';
+  var heightStyle = styles.height;
+  styles.height = 'auto';
+  var maxHeightStyle = styles.maxHeight;
+  styles.maxHeight = 'none';
 
   // If already short enough, we're done
   if (el.offsetHeight <= maxHeight) {
-    el.style.height = heightStyle;
-    el.style.maxHeight = maxHeightStyle;
+    styles.height = heightStyle;
+    styles.maxHeight = maxHeightStyle;
     return;
   }
 
@@ -59,20 +61,11 @@ function shaver(target, maxHeight, opts) {
 
   el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
 
-  el.style.height = heightStyle;
-  el.style.maxHeight = maxHeightStyle;
+  styles.height = heightStyle;
+  styles.maxHeight = maxHeightStyle;
 }
 
 /* global document, window */
-function shave(target, maxHeight, opts) {
-  var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
-  if (!('length' in els)) els = [els];
-  for (var i = 0; i < els.length; i += 1) {
-    var el = els[i];
-    shaver(el, maxHeight, opts);
-  }
-}
-
 if (typeof window !== 'undefined') {
   var plugin = window.$ || window.jQuery || window.Zepto;
   if (plugin) {
@@ -82,7 +75,5 @@ if (typeof window !== 'undefined') {
     };
   }
 }
-
-return shave;
 
 })));
