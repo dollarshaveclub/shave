@@ -11,10 +11,12 @@ function shave(target, maxHeight, opts) {
 
   var defaults = {
     character: '…',
-    classname: 'js-shave'
+    classname: 'js-shave',
+    spaces: true
   };
   var character = opts && opts.character || defaults.character;
   var classname = opts && opts.classname || defaults.classname;
+  var spaces = opts && opts.spaces === false ? false : defaults.spaces;
   var charHtml = '<span class="js-shave-char">' + character + '</span>';
 
   for (var i = 0; i < els.length; i++) {
@@ -29,13 +31,13 @@ function shave(target, maxHeight, opts) {
     }
 
     // If already short enough, we're done
-    if (el.offsetHeight < maxHeight) break;
+    if (el.offsetHeight < maxHeight) continue;
 
     var fullText = el.textContent;
-    var words = fullText.split(' ');
+    var words = spaces ? fullText.split(' ') : fullText;
 
     // If 0 or 1 words, we're done
-    if (words.length < 2) break;
+    if (words.length < 2) continue;
 
     // Binary search for number of words which can fit in allotted height
     var max = words.length - 1;
@@ -43,14 +45,14 @@ function shave(target, maxHeight, opts) {
     var pivot = void 0;
     while (min < max) {
       pivot = min + max + 1 >> 1;
-      el.textContent = words.slice(0, pivot).join(' ');
+      el.textContent = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot);
       el.insertAdjacentHTML('beforeend', charHtml);
-      if (el.offsetHeight > maxHeight) max = pivot - 1;else min = pivot;
+      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2;else min = pivot;
     }
 
-    el.textContent = words.slice(0, max).join(' ');
+    el.textContent = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
     el.insertAdjacentHTML('beforeend', charHtml);
-    var diff = words.slice(max + 1).join(' ');
+    var diff = spaces ? words.slice(max + 1).join(' ') : words.slice(max);
 
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
   }
