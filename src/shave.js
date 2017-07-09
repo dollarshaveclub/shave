@@ -1,6 +1,5 @@
-/* global document, window */
+/* global document */
 function shaveEl(target, maxHeight, opts = {}) {
-  if (!maxHeight) throw Error('maxHeight is required');
   const el = target;
   const styles = el.style;
   const character = opts.character || '…';
@@ -60,6 +59,7 @@ function shaveEl(target, maxHeight, opts = {}) {
 }
 
 export default function shave(target, maxHeight, opts) {
+  if (!maxHeight) throw Error('maxHeight is required');
   let els = (typeof target === 'string') ? document.querySelectorAll(target) : target;
   if (!('length' in els)) els = [els];
   for (let i = 0; i < els.length; i += 1) {

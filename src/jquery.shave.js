@@ -1,4 +1,4 @@
-/* global document, window */
+/* global window */
 import shave from './shave';
 
 if (typeof window !== 'undefined') {

@@ -4,11 +4,10 @@
 	(global.shave = factory());
 }(this, (function () { 'use strict';
 
-/* global document, window */
+/* global document */
 function shaveEl(target, maxHeight) {
   var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-  if (!maxHeight) throw Error('maxHeight is required');
   var el = target;
   var styles = el.style;
   var character = opts.character || '…';
@@ -66,6 +65,7 @@ function shaveEl(target, maxHeight) {
 }
 
 function shave(target, maxHeight, opts) {
+  if (!maxHeight) throw Error('maxHeight is required');
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
   if (!('length' in els)) els = [els];
   for (var i = 0; i < els.length; i += 1) {
