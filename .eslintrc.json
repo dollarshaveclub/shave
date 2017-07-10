@@ -2,6 +2,11 @@
   "extends": [ "airbnb/base"],
   "rules": {
     "indent": 2,
-    "semi": [2, "never"]
+    "semi": [2, "never"],
+    "no-continue": 0
+  },
+  "globals": {
+    "document": true,
+    "window": true
   }
 }
