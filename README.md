@@ -110,3 +110,8 @@ Shave is meant to truncate text within a selected html element. This means it wi
 Here are some super basic examples of shave with [window resize](http://codepen.io/yowainwright/pen/yVBxGY) and [click](http://codepen.io/yowainwright/pen/PbYdvL/) events. 🙌
 
 Shave works in all modern browsers and was tested in some not so modern browsers (like Internet Explorer 8) - it works there too. 🍻
+
+----
+
+Created and maintained by [Jeff Wainwright](https://github.com/yowainwright) with [Dollar Shave Club Engineering](https://github.com/dollarshaveclub).
+
