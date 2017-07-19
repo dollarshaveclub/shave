@@ -18,7 +18,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('minify', function() {
-  gulp.src('dist/shave.umd.js')
+  gulp.src('dist/shave.js')
     .pipe(uglify())
     .pipe(head(banner, { pkg }))
     .pipe(rename({ suffix: '.min' }))

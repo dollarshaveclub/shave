@@ -54,7 +54,7 @@ yarn add shave
 
 ## Usage
 
-Add **dist/shave.umd.js**.
+Add **dist/shave.js**.
 -  Or, **dist/jquery.shave.js** for jQuery/Zepto as of Shave >= v2.
 
 ## Syntax
@@ -114,3 +114,4 @@ Shave works in all modern browsers and was tested in some not so modern browsers
 ----
 
 Created and maintained by [Jeff Wainwright](https://github.com/yowainwright) with [Dollar Shave Club Engineering](https://github.com/dollarshaveclub).
+

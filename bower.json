@@ -1,7 +1,7 @@
 {
   "name": "shave",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
-  "main": "dist/shave.umd.js",
+  "main": "dist/shave.js",
   "authors": [
     "Jeff Wainwright <jjwainwright2@gmail.com> (http://jeffry.in)"
   ],
