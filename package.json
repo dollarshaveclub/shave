@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "gulp test",
-    "rollup": "rollup -c --environment entry:shave && rollup -c --environment entry:jquery.shave",
+    "rollup": "rollup -c --environment entry:shave,format:umd && rollup -c --environment entry:shave,format:es && rollup -c --environment entry:jquery.shave",
     "build": "npm run rollup && gulp",
     "postpublish": "git tag $npm_package_version && git push origin --tags"
   },
