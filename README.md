@@ -54,13 +54,13 @@ yarn add shave
 
 ## Usage
 
-Import as a module
+Add **dist/shave.js** to your html
+-  Or, **dist/jquery.shave.js** for jQuery/Zepto as of Shave >= v2.
+
+Or as a module
 ```sh
 import shave from 'shave';
 ```
-
-Or add **dist/shave.js** to your html
--  Or, **dist/jquery.shave.js** for jQuery/Zepto as of Shave >= v2.
 
 ## Syntax
 
