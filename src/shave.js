@@ -8,6 +8,7 @@ export default function shave(target, maxHeight, opts = {}) {
   const charHtml = `<span class="js-shave-char">${character}</span>`
 
   if (!('length' in els)) els = [els]
+  const unshaveFunctions = []
   for (let i = 0; i < els.length; i += 1) {
     const el = els[i]
     const styles = el.style
@@ -61,5 +62,14 @@ export default function shave(target, maxHeight, opts = {}) {
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
+
+    unshaveFunctions.push(() => {
+      el[textProp] = fullText
+    })
+  }
+  return function unshave() {
+    while (unshaveFunctions.length) {
+      unshaveFunctions.pop()()
+    }
   }
 }
