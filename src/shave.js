@@ -61,5 +61,9 @@ export default function shave(target, maxHeight, opts = {}) {
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
+
+    return function unshave() {
+      el[textProp] = fullText
+    }
   }
 }
