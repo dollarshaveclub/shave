@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Shave" src="http://imgh.us/shave.svg" />
+  <img alt="Shave" src="https://yowainwright.imgix.net/gh/shave-thin.svg" />
 </p>
 <hr>
 <p align="center">
