@@ -22,7 +22,7 @@ export default function shave(target, maxHeight, opts = {}) {
     }
 
     const fullText = el[textProp]
-    const words = spaces ? fullText.split(' ') : fullText
+    const words = spaces ? fullText : fullText.split(' ')
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue
@@ -46,15 +46,15 @@ export default function shave(target, maxHeight, opts = {}) {
     let pivot
     while (min < max) {
       pivot = (min + max + 1) >> 1 // eslint-disable-line no-bitwise
-      el[textProp] = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot)
+      el[textProp] = spaces ? words.slice(0, pivot) : words.slice(0, pivot).join(' ')
       el.insertAdjacentHTML('beforeend', charHtml)
-      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2
+      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 2 : pivot - 1
       else min = pivot
     }
 
-    el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max)
+    el[textProp] = spaces ? words.slice(0, max) : words.slice(0, max).join(' ')
     el.insertAdjacentHTML('beforeend', charHtml)
-    const diff = spaces ? words.slice(max).join(' ') : words.slice(max)
+    const diff = spaces ? words.slice(max) : words.slice(max).join(' ')
 
     el.insertAdjacentHTML('beforeend',
       `<span class="${classname}" style="display:none;">${diff}</span>`)
