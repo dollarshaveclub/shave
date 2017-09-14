@@ -12,7 +12,7 @@ function shave(target, maxHeight) {
 
   var character = opts.character || '…';
   var classname = opts.classname || 'js-shave';
-  var spaces = opts.spaces || false;
+  var spaces = opts.spaces || true;
   var charHtml = '<span class="js-shave-char">' + character + '</span>';
 
   if (!('length' in els)) els = [els];
@@ -30,7 +30,7 @@ function shave(target, maxHeight) {
     }
 
     var fullText = el[textProp];
-    var words = spaces ? fullText.split(' ') : fullText;
+    var words = spaces ? fullText : fullText.split(' ');
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue;
@@ -54,14 +54,14 @@ function shave(target, maxHeight) {
     var pivot = void 0;
     while (min < max) {
       pivot = min + max + 1 >> 1; // eslint-disable-line no-bitwise
-      el[textProp] = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot);
+      el[textProp] = spaces ? words.slice(0, pivot) : words.slice(0, pivot).join(' ');
       el.insertAdjacentHTML('beforeend', charHtml);
-      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2;else min = pivot;
+      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 2 : pivot - 1;else min = pivot;
     }
 
-    el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
+    el[textProp] = spaces ? words.slice(0, max) : words.slice(0, max).join(' ');
     el.insertAdjacentHTML('beforeend', charHtml);
-    var diff = spaces ? words.slice(max).join(' ') : words.slice(max);
+    var diff = spaces ? words.slice(max) : words.slice(max).join(' ');
 
     el.insertAdjacentHTML('beforeend', '<span class="' + classname + '" style="display:none;">' + diff + '</span>');
 
