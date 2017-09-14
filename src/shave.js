@@ -4,7 +4,7 @@ export default function shave(target, maxHeight, opts = {}) {
 
   const character = opts.character || '…'
   const classname = opts.classname || 'js-shave'
-  const spaces = opts.spaces || false
+  const spaces = opts.spaces || true
   const charHtml = `<span class="js-shave-char">${character}</span>`
 
   if (!('length' in els)) els = [els]
