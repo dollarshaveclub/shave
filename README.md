@@ -83,7 +83,7 @@ Or both:
 shave('selector', maxheight, {classname: 'classname', character: '✁' });
 ```
 Without spaces:
-```javascrpt
+```javascript
 shave({ spaces: false });
 ```
 
