@@ -1,6 +1,7 @@
 export default function shave(target, maxHeight, opts = {}) {
   if (!maxHeight) throw Error('maxHeight is required')
   let els = (typeof target === 'string') ? document.querySelectorAll(target) : target
+  if (!els) return
 
   const character = opts.character || '…'
   const classname = opts.classname || 'js-shave'
