@@ -9,6 +9,7 @@ function shave(target, maxHeight) {
 
   if (!maxHeight) throw Error('maxHeight is required');
   var els = typeof target === 'string' ? document.querySelectorAll(target) : target;
+  if (!els) return;
 
   var character = opts.character || '…';
   var classname = opts.classname || 'js-shave';
