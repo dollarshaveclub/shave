@@ -1,6 +1,6 @@
 {
   "name": "shave",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
   "module": "dist/shave.es.js",
@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "test": "gulp test",
-    "test:es-check": "es-check check es5 dist/shave.min.js dist/shave.js dist/jquery.shave.js dist/jquery.shave.min.js",
+    "test:es-check": "es-check es5 dist/shave.min.js dist/shave.js dist/jquery.shave.js dist/jquery.shave.min.js",
     "rollup": "rollup -c --environment entry:shave,format:umd && rollup -c --environment entry:shave,format:es && rollup -c --environment entry:jquery.shave",
     "build": "npm run rollup && gulp",
     "postpublish": "git tag $npm_package_version && git push origin --tags"
@@ -45,7 +45,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "bower": "^1.7.9",
     "debug": "^2.6.8",
-    "es-check": "^1.0.0",
+    "es-check": "^2.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "^2.7.0",
