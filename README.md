@@ -125,4 +125,4 @@ Shave works in all modern browsers and was tested in some not so modern browsers
 
 ----
 
-Created and maintained by [Jeff Wainwright](https://github.com/yowainwright) with [Dollar Shave Club Engineering](https://github.com/dollarshaveclub).
+[Created](https://github.com/yowainwright/truncated.js) and maintained by [Jeff Wainwright](https://github.com/yowainwright) with [Dollar Shave Club Engineering](https://github.com/dollarshaveclub).
