@@ -9,6 +9,8 @@
     "src"
   ],
   "scripts": {
+    "eslint": "eslint . --fix",
+    "eslint:ci": "eslint .",
     "test": "gulp test",
     "test:es-check": "es-check es5 dist/shave.min.js dist/shave.js dist/jquery.shave.js dist/jquery.shave.min.js",
     "rollup": "rollup -c --environment entry:shave,format:umd && rollup -c --environment entry:shave,format:es && rollup -c --environment entry:jquery.shave",
