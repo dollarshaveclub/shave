@@ -57,8 +57,10 @@ export default function shave(target, maxHeight, opts = {}) {
     el.insertAdjacentHTML('beforeend', charHtml)
     const diff = spaces ? words.slice(max) : words.slice(max).join(' ')
 
-    el.insertAdjacentHTML('beforeend',
-      `<span class="${classname}" style="display:none;">${diff}</span>`)
+    el.insertAdjacentHTML(
+      'beforeend',
+      `<span class="${classname}" style="display:none;">${diff}</span>`,
+    )
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
