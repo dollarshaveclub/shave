@@ -1,7 +1,8 @@
 export default function shave(target, maxHeight, opts = {}) {
   if (!maxHeight) throw Error('maxHeight is required')
+  var didTruncate = false
   let els = (typeof target === 'string') ? document.querySelectorAll(target) : target
-  if (!els) return
+  if (!els) return didTruncate
 
   const character = opts.character || '…'
   const classname = opts.classname || 'js-shave'
@@ -39,6 +40,8 @@ export default function shave(target, maxHeight, opts = {}) {
       styles.height = heightStyle
       styles.maxHeight = maxHeightStyle
       continue
+    } else {
+      didTruncate = true;
     }
 
     // Binary search for number of words which can fit in allotted height
@@ -64,5 +67,6 @@ export default function shave(target, maxHeight, opts = {}) {
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
+    return didTruncate
   }
 }
