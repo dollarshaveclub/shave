@@ -1,4 +1,4 @@
-export default function shave(target, maxHeight, opts = {}) {
+export default function shave (target, maxHeight, opts = {}) {
   if (!maxHeight) throw Error('maxHeight is required')
   let els = (typeof target === 'string') ? document.querySelectorAll(target) : target
   if (!els) return
@@ -19,7 +19,8 @@ export default function shave(target, maxHeight, opts = {}) {
     if (span) {
       // Remove the ellipsis to recapture the original text
       el.removeChild(el.querySelector('.js-shave-char'))
-      el[textProp] = el[textProp] // nuke span, recombine text
+      el[textProp] = el[textProp] // eslint-disable-line
+      // nuke span, recombine text
     }
 
     const fullText = el[textProp]
