@@ -11,10 +11,9 @@
   "scripts": {
     "eslint": "eslint . --fix",
     "eslint:ci": "eslint .",
-    "test": "gulp test",
+    "test": "node ./scripts/acceptance.js --coverage",
     "test:es-check": "es-check es5 dist/shave.min.js dist/shave.js dist/jquery.shave.js dist/jquery.shave.min.js",
-    "rollup": "rollup -c --environment entry:shave,format:umd && rollup -c --environment entry:shave,format:es && rollup -c --environment entry:jquery.shave",
-    "build": "npm run rollup && gulp",
+    "build": "rollup --config rollup.config.js",
     "postpublish": "git tag $npm_package_version && git push origin --tags"
   },
   "repository": {
@@ -42,26 +41,22 @@
   },
   "homepage": "https://github.com/dollarshaveclub/shave#readme",
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "babel-core": "^7.0.0-bridge.0",
     "bower": "^1.7.9",
     "debug": "^3.1.0",
     "es-check": "^2.0.0",
     "eslint": "^5.0.0",
-    "eslint-config-airbnb": "17.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-config-dollarshaveclub": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-header": "^2.0.1",
     "gulp-qunit": "^2.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "node-qunit-phantomjs": "^2.0.0",
-    "rollup": "^0.61.0",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-commonjs": "^9.0.0",
-    "rollup-plugin-eslint": "^4.0.0",
-    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup": "^0.61.2",
+    "rollup-plugin-babel": "^4.0.0-beta.0",
     "rollup-plugin-uglify": "^4.0.0"
   }
 }

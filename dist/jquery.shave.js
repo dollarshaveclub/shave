@@ -27,7 +27,8 @@
       if (span) {
         // Remove the ellipsis to recapture the original text
         el.removeChild(el.querySelector('.js-shave-char'));
-        el[textProp] = el[textProp]; // nuke span, recombine text
+        el[textProp] = el[textProp]; // eslint-disable-line
+        // nuke span, recombine text
       }
 
       var fullText = el[textProp];
