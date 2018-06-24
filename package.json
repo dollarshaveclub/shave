@@ -11,7 +11,8 @@
   "scripts": {
     "eslint": "eslint . --fix",
     "eslint:ci": "eslint .",
-    "test": "node ./scripts/acceptance.js --coverage",
+    "test": "npm run test:acceptance && npm run test:es-check",
+    "test:acceptance": "node ./scripts/acceptance.js --coverage",
     "test:es-check": "es-check es5 dist/shave.min.js dist/shave.js dist/jquery.shave.js dist/jquery.shave.min.js",
     "build": "rollup --config rollup.config.js",
     "postpublish": "git tag $npm_package_version && git push origin --tags"
@@ -44,7 +45,6 @@
     "@babel/core": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.40",
     "babel-core": "^7.0.0-bridge.0",
-    "bower": "^1.7.9",
     "es-check": "^2.0.0",
     "eslint": "^5.0.0",
     "eslint-config-dollarshaveclub": "^3.1.0",
