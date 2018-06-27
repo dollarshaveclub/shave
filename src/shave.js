@@ -48,15 +48,15 @@ export default function shave (target, maxHeight, opts = {}) {
     let pivot
     while (min < max) {
       pivot = (min + max + 1) >> 1 // eslint-disable-line no-bitwise
-      el[textProp] = spaces ? words.slice(0, pivot) : words.slice(0, pivot).join(' ')
+      el[textProp] = spaces ? words.slice(0, pivot) : words.slice(0, pivot).join('')
       el.insertAdjacentHTML('beforeend', charHtml)
-      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 2 : pivot - 1
+      if (el.offsetHeight > maxHeight) max = pivot - 2
       else min = pivot
     }
 
-    el[textProp] = spaces ? words.slice(0, max) : words.slice(0, max).join(' ')
+    el[textProp] = spaces ? words.slice(0, max) : words.slice(0, max).join('')
     el.insertAdjacentHTML('beforeend', charHtml)
-    const diff = spaces ? words.slice(max) : words.slice(max).join(' ')
+    const diff = spaces ? words.slice(max) : words.slice(max).join('')
 
     el.insertAdjacentHTML(
       'beforeend',
