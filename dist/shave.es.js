@@ -30,7 +30,7 @@ function shave(target, maxHeight) {
     }
 
     var fullText = el[textProp];
-    var words = spaces ? fullText : fullText.split(' '); // If 0 or 1 words, we're done
+    var words = spaces ? fullText : fullText.split(''); // If 0 or 1 words, we're done
 
     if (words.length < 2) continue; // Temporarily remove any CSS height for text height calculation
 
