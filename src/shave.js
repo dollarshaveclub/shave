@@ -24,7 +24,7 @@ export default function shave (target, maxHeight, opts = {}) {
     }
 
     const fullText = el[textProp]
-    const words = spaces ? fullText : fullText.split(' ')
+    const words = spaces ? fullText : fullText.split('')
 
     // If 0 or 1 words, we're done
     if (words.length < 2) continue
