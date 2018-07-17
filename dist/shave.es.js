@@ -1,8 +1,8 @@
 /**
   shave - Shave is a javascript plugin that truncates multi-line text within a html element based on set max height
-  @version v2.2.1
+  @version v2.2.2
   @link https://github.com/dollarshaveclub/shave#readme
-  @author Jeff Wainwright <jjwainwright2@gmail.com> (jeffry.in)
+  @author Jeff Wainwright <yowainwright@gmail.com> (jeffry.in)
   @license MIT
 **/
 function shave(target, maxHeight) {
@@ -30,7 +30,7 @@ function shave(target, maxHeight) {
     }
 
     var fullText = el[textProp];
-    var words = spaces ? fullText : fullText.split(''); // If 0 or 1 words, we're done
+    var words = spaces ? fullText.split(' ') : fullText; // If 0 or 1 words, we're done
 
     if (words.length < 2) continue; // Temporarily remove any CSS height for text height calculation
 
@@ -53,14 +53,14 @@ function shave(target, maxHeight) {
     while (min < max) {
       pivot = min + max + 1 >> 1; // eslint-disable-line no-bitwise
 
-      el[textProp] = spaces ? words.slice(0, pivot) : words.slice(0, pivot).join('');
+      el[textProp] = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot);
       el.insertAdjacentHTML('beforeend', charHtml);
-      if (el.offsetHeight > maxHeight) max = pivot - 2;else min = pivot;
+      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2;else min = pivot;
     }
 
-    el[textProp] = spaces ? words.slice(0, max) : words.slice(0, max).join('');
+    el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
     el.insertAdjacentHTML('beforeend', charHtml);
-    var diff = spaces ? words.slice(max) : words.slice(max).join('');
+    var diff = spaces ? words.slice(max).join(' ') : words.slice(max);
     el.insertAdjacentHTML('beforeend', "<span class=\"".concat(classname, "\" style=\"display:none;\">").concat(diff, "</span>"));
     styles.height = heightStyle;
     styles.maxHeight = maxHeightStyle;
