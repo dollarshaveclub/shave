@@ -66,7 +66,7 @@
 
       el[textProp] = spaces ? words.slice(0, max).join(' ') : words.slice(0, max);
       el.insertAdjacentHTML('beforeend', charHtml);
-      var diff = spaces ? words.slice(max).join(' ') : words.slice(max);
+      var diff = spaces ? " ".concat(words.slice(max).join(' ')) : words.slice(max);
       el.insertAdjacentHTML('beforeend', "<span class=\"".concat(classname, "\" style=\"display:none;\">").concat(diff, "</span>"));
       styles.height = heightStyle;
       styles.maxHeight = maxHeightStyle;
