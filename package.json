@@ -17,7 +17,7 @@
     "chore": "npm run chore:delete-branch && npm run chore:branch && npm run chore:changelog && npm run chore:pr",
     "eslint": "eslint . --fix",
     "eslint:ci": "eslint .",
-    "postpublish": "git tag $npm_package_version && git push origin --tags",
+    "postpublish": "git tag $npm_package_version && git push origin --tags && npm run chore",
     "prepush": "npm run build && npm test && npm run eslint:ci",
     "test": "npm run test:acceptance && npm run test:es-check",
     "test:acceptance": "node ./scripts/acceptance.js --coverage",
