@@ -1,6 +1,6 @@
 /**
   shave - Shave is a javascript plugin that truncates multi-line text within a html element based on set max height
-  @version v2.3.0
+  @version v2.4.0
   @link https://github.com/dollarshaveclub/shave#readme
   @author Jeff Wainwright <yowainwright@gmail.com> (jeffry.in)
   @license MIT
