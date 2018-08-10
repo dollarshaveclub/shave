@@ -1,3 +1,8 @@
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/dollarshaveclub/shave/compare/2.3.0...2.4.0) (2018-08-10)
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/dollarshaveclub/shave/compare/2.2.2...2.3.0) (2018-08-04)
 
