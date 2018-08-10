@@ -1,6 +1,6 @@
 {
   "name": "shave",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
   "module": "dist/shave.es.js",
@@ -8,6 +8,7 @@
     "dist",
     "src"
   ],
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "chore:delete-branch": "if git show-ref --quiet refs/heads/chore-changelog; then git branch -D chore-changelog; fi",
@@ -59,6 +60,7 @@
     "node-qunit-phantomjs": "^2.0.0",
     "rollup": "^0.64.0",
     "rollup-plugin-babel": "^4.0.0-beta.0",
-    "rollup-plugin-uglify": "^4.0.0"
+    "rollup-plugin-uglify": "^4.0.0",
+    "typescript": "^3.0.1"
   }
 }
