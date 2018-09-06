@@ -22,85 +22,131 @@
     <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000" alt="Twitter share" />
   </a>
 </p>
-<hr>
+
+----
+
 <h1 align="center">Shave ✁</h1>
 
-**Shave** is a zero dependency javascript plugin that truncates multi-line text to fit within an html element based on a set **max-height**. It then stores the _diff_ of the original text string in a hidden `<span>` element following the visible text. This means the original text remains intact!
+**Shave** is a zero dependency javascript plugin that truncates multi-line text to fit within an html element based on a set pixel number **max-height**. It then stores the _diff_ of the original text string in a hidden `<span>` element following the visible text. This means the original text remains intact!
 
 **Shave, compared to other truncation plugins:**
--   maintains the original text after truncation.
--   does not require other libraries
--   only requires a selector and a max height
--   is very lightweight; `~1.5kb` unminified
--   allows for custom ellipsis strings and class names but doesn't over complicate
--   is fast and capable of truncating text within lots of elements [quickly](http://codepen.io/pwfisher/full/ozVAyr/)
--   is additive. It will play nice with other javascript libraries and more truncation features can easily be built with it.
--   supports non-spaced languages ([Non-ascii](https://en.wikipedia.org/wiki/ASCII)).
+- maintains the original text after truncation.
+- does not require other libraries
+- only requires a selector and a max height
+- is very lightweight; `~1.5kb` unminified
+- allows for custom ellipsis strings and class names but doesn't over complicate
+- is fast and capable of truncating text within lots of elements [quickly](http://codepen.io/pwfisher/full/ozVAyr/)
+- is additive. It will play nice with other javascript libraries and more truncation features can easily be built with it.
+- supports non-spaced languages ([Non-ascii](https://en.wikipedia.org/wiki/ASCII)).
 
 ## Installing from a package manager
 
 npm
+
 ```sh
+
 npm install shave --save
+
 ```
+
 bower
+
 ```sh
+
 bower install shave --save
+
 ```
+
 yarn
+
 ```sh
+
 yarn add shave
+
 ```
 
 ## Usage
 
 Add **dist/shave.js** to your html
--  Or, **dist/jquery.shave.js** for jQuery/Zepto as of Shave >= v2.
+- Or, **dist/jquery.shave.js** for jQuery/Zepto as of Shave >= v2.
 
 Or as a module
+
 ```sh
+
 import shave from 'shave';
+
 ```
 
 ## Syntax
 
 Basic setup
+
 ```javascript
+
 shave('selector', maxheight);
+// shave('.shave-selector', 0) for example
+
 ```
+
 **Shave also provided options _only_ to overwrite what it uses.**
 
 If you'd like have custom class names and not use `.js-shave`:
+
 ```javascript
+
 shave('selector', maxheight, {classname: 'classname'});
+
 ```
+
 Or if you'd like to have custom characters (instead of the standard ellipsis):
+
 ```javascript
+
 shave('selector', maxheight, {character: '✁'});
+
 ```
+
 Or both:
+
 ```javascript
+
 shave('selector', maxheight, {classname: 'classname', character: '✁' });
+
 ```
+
 Without spaces:
+
 ```javascript
+
 shave({ spaces: false });
+
 ```
 
 ----
 
 You can also use **shave** as a [jQuery](http://jquery.com/) or [Zepto](http://zeptojs.com/) plugin. As of Shave >= v2, use **dist/jquery.shave.js** for jQuery/Zepto.
+
 ```javascript
+
 $('selector').shave(maxheight);
+
 ```
+
 And here's a _jQuery/Zepto_ example with custom options:
+
 ```javascript
+
 $('selector').shave(maxheight, { classname: 'your-css-class', character: '✁'  });
+
 ```
 
 If you're using a non-spaced language, you can support shave by setting an option `spaces` to `false`.
+
 ```javascript
+
 $('selector').shave(maxheight, { classname: 'your-css-class', character: '✁', spaces: false });
+
 ```
 
 ## Examples
@@ -113,7 +159,7 @@ $('selector').shave(maxheight, { classname: 'your-css-class', character: '✁', 
 
 ## Notes
 
-`text-overflow: ellipsis` is the way to go when truncating text to a single line. Shave does something very similar but for _multiple lines_.
+`text-overflow: ellipsis` is the way to go when truncating text to a single line. Shave does something very similar to `text-overflow: ellipsis` but for _multiple lines_ when [line-clamp](https://caniuse.com/#feat=css-line-clamp) is not supported. Shave bypasses being a `line-clamp` polyfill by only accepting a max-height number. This keeps shave a fast and light weight utility.
 
 Shave implements a [binary search](http://oli.me.uk/2013/06/08/searching-javascript-arrays-with-a-binary-search/) to truncate text in the most optimal way possible.
 
