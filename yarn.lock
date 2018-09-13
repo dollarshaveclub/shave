@@ -1395,9 +1395,9 @@ es-abstract@^1.7.0:
     is-callable "^1.1.3"
     is-regex "^1.0.4"
 
-es-check@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/es-check/-/es-check-2.2.0.tgz#4a68281420a45686ac33c1b7ff8e6458610548ca"
+es-check@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/es-check/-/es-check-4.0.0.tgz#e3b394b96b86225e556006299c2635f1b9055af9"
   dependencies:
     acorn "~5.7.0"
     caporal "^0.10.0"
