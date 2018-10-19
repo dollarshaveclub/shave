@@ -1,11 +1,13 @@
 export default function shave (target, maxHeight, opts = {}) {
   if (!maxHeight) throw Error('maxHeight is required')
   let els = (typeof target === 'string') ? document.querySelectorAll(target) : target
+  let didShave = false
   if (!els) return
 
   const character = opts.character || '…'
   const classname = opts.classname || 'js-shave'
   const spaces = typeof opts.spaces === 'boolean' ? opts.spaces : true
+  const eventName = opts.eventName || 'shave:didShave'
   const charHtml = `<span class="js-shave-char">${character}</span>`
 
   if (!('length' in els)) els = [els]
@@ -39,6 +41,8 @@ export default function shave (target, maxHeight, opts = {}) {
       styles.height = heightStyle
       styles.maxHeight = maxHeightStyle
       continue
+    } else {
+      didShave = true
     }
 
     // Binary search for number of words which can fit in allotted height
@@ -64,5 +68,13 @@ export default function shave (target, maxHeight, opts = {}) {
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
+  }
+
+  if (didShave) {
+    target.dispatchEvent(
+      new CustomEvent(eventName, {
+        bubbles: true
+      })
+    );
   }
 }
