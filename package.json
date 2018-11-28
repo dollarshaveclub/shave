@@ -26,7 +26,7 @@
     "prepush": "npm run build && npm test && npm run eslint:ci",
     "test": "npm run test:acceptance && npm run test:es-check",
     "test:acceptance": "node ./scripts/acceptance.js --coverage",
-    "test:es-check": "es-check es5 'dist/shave.min.js' 'dist/shave.js' 'dist/jquery.shave.js' 'dist/jquery.shave.min.js'"
+    "test:es-check": "es-check es5 './dist/shave.min.js' './dist/shave.js' './dist/jquery.shave.js' './dist/jquery.shave.min.js'"
   },
   "repository": {
     "type": "git",

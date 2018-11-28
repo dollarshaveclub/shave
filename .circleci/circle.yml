@@ -25,28 +25,13 @@ jobs:
       - checkout
       - *restore_cache
       - run: npm install
-      - *save_cache
-  lint:
-    <<: *defaults
-    steps:
-      - checkout
-      - *restore_cache
       - run: npm run eslint:ci
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - *restore_cache
+      - run: npm run build
       - run: npm test
+      - *save_cache
 
 workflows:
   version: 2
   all:
     jobs:
       - build
-      - lint:
-          requires:
-            - build
-      - test:
-          requires:
-            - build
