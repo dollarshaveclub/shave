@@ -13,20 +13,20 @@
   "types": "types/index.d.ts",
   "scripts": {
     "build": "rollup --config rollup.config.js",
-   "chore:delete-changelog-branch": "if git show-ref --quiet refs/heads/chore-changelog; then git branch -D chore-changelog; fi",
-   "chore:branch": "git checkout -b chore-changelog",
-   "chore:changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
-   "chore:setup-next-work": "git checkout master && npm run chore:delete-changelog-branch",
-   "chore:pr": "git add . && git commit -m '[chore] updates changelog' --no-verify && git push origin chore-changelog -f",
-   "chore:setup-changelog": "git checkout master && git pull",
-   "chore": "npm run chore:delete-changelog-branch && npm run chore:branch && npm run chore:changelog && npm run chore:pr && npm run chore:setup-next-work",
+    "chore:delete-changelog-branch": "if git show-ref --quiet refs/heads/chore-changelog; then git branch -D chore-changelog; fi",
+    "chore:branch": "git checkout -b chore-changelog",
+    "chore:changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
+    "chore:setup-next-work": "git checkout master && npm run chore:delete-changelog-branch",
+    "chore:pr": "git add . && git commit -m '[chore] updates changelog' --no-verify && git push origin chore-changelog -f",
+    "chore:setup-changelog": "git checkout master && git pull",
+    "chore": "npm run chore:delete-changelog-branch && npm run chore:branch && npm run chore:changelog && npm run chore:pr && npm run chore:setup-next-work",
     "eslint": "eslint . --fix",
     "eslint:ci": "eslint .",
     "postpublish": "git tag $npm_package_version && git push origin --tags && npm run chore",
     "prepush": "npm run build && npm test && npm run eslint:ci",
     "test": "npm run test:acceptance && npm run test:es-check",
     "test:acceptance": "node ./scripts/acceptance.js --coverage",
-    "test:es-check": "es-check es5 dist/shave.min.js dist/shave.js dist/jquery.shave.js dist/jquery.shave.min.js"
+    "test:es-check": "es-check es5 'dist/shave.min.js' 'dist/shave.js' 'dist/jquery.shave.js' 'dist/jquery.shave.min.js'"
   },
   "repository": {
     "type": "git",
