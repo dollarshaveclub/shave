@@ -3440,9 +3440,10 @@ rimraf@^2.2.8:
   dependencies:
     glob "^7.0.5"
 
-rollup-plugin-babel@^4.0.0-beta.0:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-4.0.3.tgz#8282b0e22233160d679e9c7631342e848422fb02"
+rollup-plugin-babel@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-4.3.0.tgz#1900e66af70c3975fef26a54111b87ee22a50974"
+  integrity sha512-HoNMaLA56MPZ9XCeG+RD2QzTySVe168R/k6bPEm8noB9PSK8wBnY4matFluwmH2Bj3PQdqYAknV1jDqw8GAc8g==
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     rollup-pluginutils "^2.3.0"
