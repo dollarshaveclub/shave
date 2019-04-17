@@ -57,10 +57,13 @@ export default function shave (target, maxHeight, opts = {}) {
     el.insertAdjacentHTML('beforeend', charHtml)
     const diff = spaces ? ` ${words.slice(max).join(' ')}` : words.slice(max)
 
-    el.insertAdjacentHTML(
-      'beforeend',
-      `<span class="${classname}" style="display:none;">${diff}</span>`,
-    )
+    // https://stackoverflow.com/questions/476821/is-a-dom-text-node-guaranteed-to-not-be-interpreted-as-html
+    const shavedText = document.createTextNode(diff)
+    const elWithShavedText = document.createElement('span')
+    elWithShavedText.classList.add(classname)
+    elWithShavedText.style.display = 'none'
+    elWithShavedText.appendChild(shavedText)
+    el.insertAdjacentElement('beforeend', elWithShavedText)
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
