@@ -57,7 +57,6 @@ export default function shave (target, maxHeight, opts = {}) {
     el.insertAdjacentHTML('beforeend', charHtml)
     const diff = spaces ? ` ${words.slice(max).join(' ')}` : words.slice(max)
 
-    // https://stackoverflow.com/questions/476821/is-a-dom-text-node-guaranteed-to-not-be-interpreted-as-html
     const shavedText = document.createTextNode(diff)
     const elWithShavedText = document.createElement('span')
     elWithShavedText.classList.add(classname)
