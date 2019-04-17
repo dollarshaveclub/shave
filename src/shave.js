@@ -58,12 +58,12 @@ export default function shave (target, maxHeight, opts = {}) {
     const diff = spaces ? ` ${words.slice(max).join(' ')}` : words.slice(max)
 
     // https://stackoverflow.com/questions/476821/is-a-dom-text-node-guaranteed-to-not-be-interpreted-as-html
-    const hiddenText = document.createTextNode(diff)
-    const wrapper = document.createElement('span')
-    wrapper.classList.add(classname)
-    wrapper.style.display = 'none'
-    wrapper.appendChild(hiddenText)
-    el.insertAdjacentElement('beforeend', wrapper)
+    const shavedText = document.createTextNode(diff)
+    const elWithShavedText = document.createElement('span')
+    elWithShavedText.classList.add(classname)
+    elWithShavedText.style.display = 'none'
+    elWithShavedText.appendChild(shavedText)
+    el.insertAdjacentElement('beforeend', elWithShavedText)
 
     styles.height = heightStyle
     styles.maxHeight = maxHeightStyle
