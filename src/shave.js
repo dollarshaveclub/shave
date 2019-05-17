@@ -14,6 +14,11 @@ export default function shave (target, maxHeight, opts = {}) {
     const styles = el.style
     const span = el.querySelector(`.${classname}`)
     const textProp = el.textContent === undefined ? 'innerText' : 'textContent'
+    const parsedMaxHeight = (typeof maxHeight === 'number')
+      ? maxHeight
+      : maxHeight[maxHeight.length - 1] === '%'
+        ? (parseInt(maxHeight.slice(0, maxHeight.length - 1)) / 100) * el.offsetHeight
+        : maxHeight
 
     // If element text has already been shaved
     if (span) {
@@ -49,7 +54,7 @@ export default function shave (target, maxHeight, opts = {}) {
       pivot = (min + max + 1) >> 1 // eslint-disable-line no-bitwise
       el[textProp] = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot)
       el.insertAdjacentHTML('beforeend', charHtml)
-      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2
+      if (el.offsetHeight > parsedMaxHeight) max = spaces ? pivot - 1 : pivot - 2
       else min = pivot
     }
 
