@@ -1,6 +1,6 @@
 {
   "name": "shave",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "description": "Shave is a javascript plugin that truncates multi-line text within a html element based on set max height",
   "main": "dist/shave.js",
   "module": "dist/shave.es.js",
@@ -60,6 +60,9 @@
     "es-check": "5.0.0",
     "eslint": "^5.0.0",
     "eslint-config-dollarshaveclub": "^3.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^2.0.0",
     "node-qunit-phantomjs": "^2.0.0",
     "rollup": "^1.15.1",
