@@ -1,5 +1,5 @@
 export default function shave (target, maxHeight, opts = {}) {
-  if (!maxHeight) throw Error('maxHeight is required')
+  if (typeof maxHeight === 'undefined' || isNaN(maxHeight)) throw Error('maxHeight is required')
   let els = (typeof target === 'string') ? document.querySelectorAll(target) : target
   if (!els) return
 
