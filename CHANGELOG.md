@@ -1,3 +1,13 @@
+## [2.5.6](https://github.com/dollarshaveclub/shave/compare/2.5.4...2.5.6) (2019-10-21)
+
+
+
+
+## [2.5.4](https://github.com/dollarshaveclub/shave/compare/2.5.3...2.5.4) (2019-06-25)
+
+
+
+
 ## [2.5.3](https://github.com/dollarshaveclub/shave/compare/2.5.2...2.5.3) (2019-04-17)
 
 
