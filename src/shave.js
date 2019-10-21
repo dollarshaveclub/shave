@@ -49,7 +49,7 @@ export default function shave (target, maxHeight, opts = {}) {
       pivot = (min + max + 1) >> 1 // eslint-disable-line no-bitwise
       el[textProp] = spaces ? words.slice(0, pivot).join(' ') : words.slice(0, pivot)
       el.insertAdjacentHTML('beforeend', charHtml)
-      if (el.offsetHeight > maxHeight) max = spaces ? pivot - 1 : pivot - 2
+      if (el.offsetHeight > maxHeight) max = pivot - 1
       else min = pivot
     }
 
