@@ -64,7 +64,7 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^3.0.0",
-    "node-qunit-phantomjs": "^2.0.0",
+    "node-qunit-phantomjs": "^2.1.0",
     "rollup": "^1.19.4",
     "rollup-plugin-babel": "^4.0.0-beta.0",
     "rollup-plugin-uglify": "^6.0.1",
