@@ -53,7 +53,7 @@
   },
   "homepage": "https://github.com/dollarshaveclub/shave#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
+    "@babel/core": "^7.7.0",
     "@babel/preset-env": "^7.0.0-beta.40",
     "babel-core": "^7.0.0-bridge.0",
     "conventional-changelog-cli": "^2.0.11",
