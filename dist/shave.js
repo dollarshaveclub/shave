@@ -9,7 +9,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.shave = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
   function shave(target, maxHeight) {
     var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -80,4 +80,4 @@
 
   return shave;
 
-}));
+})));
