@@ -95,7 +95,7 @@ If you'd like have custom class names and not use `.js-shave`:
 
 ```javascript
 
-shave('selector', maxheight, {classname: 'classname'});
+shave('selector', maxheight, { classname: 'classname' });
 
 ```
 
@@ -103,7 +103,7 @@ Or if you'd like to have custom characters (instead of the standard ellipsis):
 
 ```javascript
 
-shave('selector', maxheight, {character: '✁'});
+shave('selector', maxheight, { character: '✁' });
 
 ```
 
@@ -111,7 +111,7 @@ Or both:
 
 ```javascript
 
-shave('selector', maxheight, {classname: 'classname', character: '✁' });
+shave('selector', maxheight, { classname: 'classname', character: '✁' });
 
 ```
 
@@ -119,7 +119,7 @@ Without spaces:
 
 ```javascript
 
-shave({ spaces: false });
+shave('selector', maxheight, { spaces: false });
 
 ```
 
