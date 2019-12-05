@@ -1,3 +1,8 @@
+## [2.5.7](https://github.com/dollarshaveclub/shave/compare/2.5.6...2.5.7) (2019-12-05)
+
+
+
+
 ## [2.5.6](https://github.com/dollarshaveclub/shave/compare/2.5.4...2.5.6) (2019-10-21)
 
 
@@ -133,7 +138,7 @@
 
 ### WIP
 
-* spread ([502809c5720519dc92edaeb2a888d95bb16b5dfd](https://github.com/dollarshaveclub/shave/commit/502809c5720519dc92edaeb2a888d95bb16b5dfd))
+* spread ([502809c](https://github.com/dollarshaveclub/shave/commit/502809c5720519dc92edaeb2a888d95bb16b5dfd))
 
 
 
