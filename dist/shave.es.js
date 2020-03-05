@@ -66,7 +66,7 @@ function shave(target, maxHeight) {
     elWithShavedText.classList.add(classname);
     elWithShavedText.style.display = 'none';
     elWithShavedText.appendChild(shavedText);
-    el.insertAdjacentElement('beforeend', elWithShavedText);
+    el.appendChild(elWithShavedText);
     styles.height = heightStyle;
     styles.maxHeight = maxHeightStyle;
   }
