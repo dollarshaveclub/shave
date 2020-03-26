@@ -1,3 +1,13 @@
+<p align="center">⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️</p>
+<p align="center">
+  <strong>
+    This software is maintained under a new repository located at <a href="https://github.com/yowainwright/shave">yowainwright/shave</a>
+  </strong>
+</p>
+<p align="center">⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️</p>
+
+***
+
 <p align="center">
   <img alt="Shave" src="https://yowainwright.imgix.net/gh/shave-thin.svg" />
 </p>
